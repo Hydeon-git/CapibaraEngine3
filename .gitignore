@@ -24,22 +24,9 @@
 *.la
 *.a
 *.lib
-!Dependencies/glew/lib/glew32s.lib
-!Dependencies/glew/lib/glew32.lib
-!Dependencies/SDL/libx86/SDL2.lib
-!Dependencies/SDL/libx86/SDL2main.lib
-!Dependencies/MathGeoLib/lib/Release/MathGeoLib.lib
-!Dependencies/MathGeoLib/lib/Deb/MathGeoLib.lib
-!Dependencies/Assimp/lib/assimp-vc142-mt.lib
-!Dependencies/PhysFS/lib/physfs.lib
-!Dependencies/Optick/lib/OptickCore.lib
-!Dependencies/DevIL/lib/DevIL.lib
-!Dependencies/DevIL/lib/ILU.lib
-!Dependencies/DevIL/lib/ILUT.lib
 
 # Executables
 *.exe
-!Dependencies/Optick/Optick.exe
 *.out
 *.app
 
@@ -50,7 +37,6 @@ Thumbs.db
 *.obj
 *.pdb
 *.aps
-# *.user
 # *.vcproj
 # *.vcxproj*
 # *.sln
@@ -67,7 +53,6 @@ Thumbs.db
 *.cache
 *.ilk
 *.log
-*.tlog
 .vs
 
 [Bb]uild
@@ -83,3 +68,4 @@ ipch/
 *.opensdf
 *.db
 *.opendb
+packages/
