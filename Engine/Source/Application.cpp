@@ -164,7 +164,7 @@ void Application::AddModule(Module* mod)
 
 void Application::RequestBrowser(const char* path)
 {
-	ShellExecuteA(NULL, "open", path, NULL, NULL, SW_SHOWNORMAL);
+	ShellExecute(NULL, "open", path, NULL, NULL, SW_SHOWNORMAL);
 }
 
 void Application::LogConsole(const char* string)
