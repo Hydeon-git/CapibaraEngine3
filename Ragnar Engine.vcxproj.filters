@@ -426,6 +426,9 @@
     <ClCompile Include="Engine\Source\Model.cpp">
       <Filter>Sources\Resources</Filter>
     </ClCompile>
+    <ClCompile Include="MathClient.cpp">
+      <Filter>Sources\Tools</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Ragnar Engine.rc" />
