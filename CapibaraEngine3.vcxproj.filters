@@ -431,7 +431,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="Ragnar Engine.rc" />
+    <ResourceCompile Include="CapibaraEngine3.rc" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Output\Settings\EngineResources\logo.ico" />
