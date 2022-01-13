@@ -11,7 +11,7 @@
 
 Mesh::Mesh(uint uid, std::string& assets, std::string& library) : vbo(nullptr), ebo(nullptr), tbo(0), Resource(uid, ResourceType::MESH, assets, library)
 {
-	std::string metaPath = MESHES_FOLDER + std::string("mesh_") + std::to_string(uid) + ".meta";
+	std::string metaPath = LIBRARY_MESHES_FOLDER + std::string("mesh_") + std::to_string(uid) + ".meta";
 	MeshImporter::CreateMetaMesh(metaPath, assets, uid);
 	name = assets;
 	app->fs->GetFilenameWithoutExtension(name);

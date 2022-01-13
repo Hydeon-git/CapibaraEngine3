@@ -12,6 +12,7 @@
 #include "Texture.h"
 #include "Mesh.h"
 #include "Model.h"
+#include "Script.h"
 
 #include <stack>
 
@@ -80,16 +81,20 @@ uint ResourceManager::CreateResource(ResourceType type, std::string& assets, std
 	case ResourceType::NONE:
 		break;
 	case ResourceType::TEXTURE:
-		library = TEXTURES_FOLDER + std::string("texture_") + std::to_string(uid) + ".cbtexture";
+		library = LIBRARY_TEXTURES_FOLDER + std::string("texture_") + std::to_string(uid) + ".cbtexture";
 		resource = std::make_shared<Texture>(uid, assets, library);
 		break;
 	case ResourceType::MESH:
-		library = MESHES_FOLDER + std::string("mesh_") + std::to_string(uid) + ".cbmesh";
+		library = LIBRARY_MESHES_FOLDER + std::string("mesh_") + std::to_string(uid) + ".cbmesh";
 		resource = std::make_shared<Mesh>(uid, assets, library);
 		break;
 	case ResourceType::MODEL:
-		library = MODELS_FOLDER + std::string("model_") + std::to_string(uid) + ".cbmodel";
+		library = LIBRARY_MODELS_FOLDER + std::string("model_") + std::to_string(uid) + ".cbmodel";
 		resource = std::make_shared<Model>(uid, assets, library);
+		break;
+	case ResourceType::SCRIPT:
+		library = LIBRARY_SCRIPTS_FOLDER + std::string("script_") + std::to_string(uid) + ".cbscript";
+		resource = std::make_shared<Script>(uid, assets, library);
 		break;
 	}
 
@@ -111,6 +116,9 @@ void ResourceManager::CreateResourceCreated(ResourceType type, uint uid, std::st
 		break;
 	case ResourceType::MODEL:
 		resource = std::make_shared<Model>(uid, assets, library);
+		break;
+	case ResourceType::SCRIPT:
+		resource = std::make_shared<Script>(uid, assets, library);
 		break;
 	default:
 		break;
@@ -300,7 +308,7 @@ Texture* ResourceManager::IsTextureLoaded(std::string path)
 	if (p.find(".dds") == std::string::npos)
 	{
 		app->fs->GetFilenameWithoutExtension(p);
-		p = TEXTURES_FOLDER + p + ".dds";
+		p = LIBRARY_TEXTURES_FOLDER + p + ".dds";
 	}
 
 	for (int i = 0; i < textures.size(); ++i)
@@ -337,7 +345,7 @@ Mesh* ResourceManager::IsMeshLoaded(std::string path)
 	if (p.find(".cbmesh") == std::string::npos)
 	{
 		app->fs->GetFilenameWithoutExtension(p);
-		p = MESHES_FOLDER + p + ".dds";
+		p = LIBRARY_MESHES_FOLDER + p + ".dds";
 	}
 
 	for (int i = 0; i < meshes.size(); ++i)

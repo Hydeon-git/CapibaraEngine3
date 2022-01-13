@@ -259,6 +259,9 @@
       <Filter>Sources\Tools</Filter>
     </ClInclude>
     <ClInclude Include="resource.h" />
+    <ClInclude Include="Engine\Source\Script.h">
+      <Filter>Sources\Resources</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\Source\ModuleCamera3D.cpp">
@@ -428,6 +431,9 @@
     </ClCompile>
     <ClCompile Include="MathClient.cpp">
       <Filter>Sources\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Source\Script.cpp">
+      <Filter>Sources\Resources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

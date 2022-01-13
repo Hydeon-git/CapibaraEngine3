@@ -15,7 +15,7 @@
 Texture::Texture(uint uid, std::string& assets, std::string& library) 
 	: data(nullptr), width(0), height(0), id(0), Resource(uid, ResourceType::TEXTURE, assets, library), parameters({})
 {
-	std::string metaConfig = TEXTURES_FOLDER + std::string("texture_") + std::to_string(uid) + ".meta";
+	std::string metaConfig = LIBRARY_TEXTURES_FOLDER + std::string("texture_") + std::to_string(uid) + ".meta";
 	TextureImporter::CreateMetaTexture(metaConfig, parameters, assets, uid);
 	name = assets;
 	app->fs->GetFilenameWithExtension(name);
@@ -89,7 +89,7 @@ void Texture::Reimport()
 	width = 0;
 	height = 0;
 
-	std::string metaConfig = TEXTURES_FOLDER + std::string("texture_") + std::to_string(uid) + ".meta";
+	std::string metaConfig = LIBRARY_TEXTURES_FOLDER + std::string("texture_") + std::to_string(uid) + ".meta";
 	TextureImporter::CreateMetaTexture(metaConfig, parameters, assetsPath, uid);
 	TextureImporter::LoadTexture(libraryPath.c_str(), id, width, height, data, parameters);
 }

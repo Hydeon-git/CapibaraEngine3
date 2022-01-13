@@ -12,7 +12,7 @@
 
 Model::Model(uint uid, std::string& assets, std::string& library) : parameters({}), Resource(uid, ResourceType::MODEL, assets, library)
 {
-	std::string metaPath = MODELS_FOLDER + std::string("model_") + std::to_string(uid) + ".meta";
+	std::string metaPath = LIBRARY_MODELS_FOLDER + std::string("model_") + std::to_string(uid) + ".meta";
 	ModelImporter::CreateMetaModel(metaPath, parameters, assets, uid);
 }
 
@@ -45,7 +45,7 @@ void Model::DrawOnEditor()
 
 void Model::Reimport()
 {
-	std::string metaPath = MODELS_FOLDER + std::string("model_") + std::to_string(uid) + ".meta";
+	std::string metaPath = LIBRARY_MODELS_FOLDER + std::string("model_") + std::to_string(uid) + ".meta";
 	ModelImporter::CreateMetaModel(metaPath, parameters, assetsPath, uid);
 	ModelImporter::ReImport(assetsPath, libraryPath, parameters);
 

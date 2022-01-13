@@ -25,13 +25,17 @@ void Log(const char file[], int line, const char* format, ...);
 // Folders defines
 #define ASSETS_FOLDER "Assets/"
 #define RESOURCES_FOLDER "Assets/Resources/"
+#define TEXTURES_FOLDER "Assets/Resources/Textures/"
+#define MODELS_FOLDER "Assets/Resources/Models/"
+#define SCRIPTS_FOLDER "Assets/Resources/Scripts/"
+#define SCENES_FOLDER "Assets/Scenes/"
 #define SETTINGS_FOLDER "Settings/"
 #define LIBRARY_FOLDER "Library/"
-#define MODELS_FOLDER "Library/Models/"
-#define MESHES_FOLDER "Library/Meshes/"
-#define TEXTURES_FOLDER "Library/Textures/"
+#define LIBRARY_MODELS_FOLDER "Library/Models/"
+#define LIBRARY_MESHES_FOLDER "Library/Meshes/"
+#define LIBRARY_SCRIPTS_FOLDER "Library/Scripts/"
+#define LIBRARY_TEXTURES_FOLDER "Library/Textures/"
 #define MATERIALS_FOLDER "Library/Materials/"
-#define SCENES_FOLDER "Assets/Scenes/"
 
 // Deletes an array of buffers
 #define RELEASE_ARRAY( x )\

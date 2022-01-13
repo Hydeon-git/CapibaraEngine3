@@ -39,7 +39,8 @@ FileSystem::FileSystem(const char* assetsPath) : name("FileSystem")
 
 	// Make sure standard paths exist
 	const char* dirs[] = {
-		RESOURCES_FOLDER, SETTINGS_FOLDER, LIBRARY_FOLDER, TEXTURES_FOLDER, MESHES_FOLDER, SCENES_FOLDER, MODELS_FOLDER
+		RESOURCES_FOLDER, SETTINGS_FOLDER, LIBRARY_FOLDER, LIBRARY_TEXTURES_FOLDER, LIBRARY_MESHES_FOLDER, LIBRARY_MODELS_FOLDER,
+		LIBRARY_SCRIPTS_FOLDER, SCENES_FOLDER
 	};
 
 	for (uint i = 0; i < sizeof(dirs) / sizeof(const char*); ++i)
