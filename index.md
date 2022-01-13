@@ -8,7 +8,7 @@ In this page you will find every piece of information regarding CapibaraEngine3,
 ## Team Members
 The first two original members of the CapibaraEngine are:
 
-- [Albert Pou](https://github.com/Hydeon-git)
+- [Albert Pou/ aka Hydeon](https://github.com/Hydeon-git)
 
 ![](https://avatars.githubusercontent.com/u/61042411?v=4)
 
@@ -16,7 +16,7 @@ The first two original members of the CapibaraEngine are:
 
 ![](https://avatars.githubusercontent.com/u/61042890?v=4)
 
-Then [Pol Pallares](https://github.com/Zeta115) joined the team in the second assignment due to his team splitting up.
+Then [Pol Pallares/ aka Zeta115](https://github.com/Zeta115) joined the team in the second assignment due to his team splitting up.
 
 ![](https://avatars.githubusercontent.com/u/60982476?v=4)
 
