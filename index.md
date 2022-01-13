@@ -18,7 +18,7 @@ The first two original members of the CapibaraEngine are:
 ![](https://avatars.githubusercontent.com/u/61042890?v=4)
 
 
-Then [Pol Pallares/ Zeta115](https://github.com/Zeta115) joined the team in at the staort of the second assignment due to his team splitting up.
+Then [Pol Pallares/ Zeta115](https://github.com/Zeta115) joined the team in at the start of the second assignment due to his team splitting up.
 
 ![](https://avatars.githubusercontent.com/u/60982476?v=4)
 
@@ -82,7 +82,10 @@ Due to the engine being done under a university project the diferent teams have 
 
 ## Explanatory video
 
-Link to the video [here]() or watch it in our page:
+Link to the video [here](https://www.youtube.com/watch?v=dQw4w9WgXcQ) or watch it in our page:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 
 ## Usefull Links
