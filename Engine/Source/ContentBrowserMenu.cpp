@@ -31,16 +31,16 @@ ContentBrowserMenu::~ContentBrowserMenu()
 
 bool ContentBrowserMenu::Start()
 {
-	dirIcon = new Texture(-1, std::string("Settings/EngineResources/folder.rgtexture"));
+	dirIcon = new Texture(-1, std::string("Settings/EngineResources/folder.cbtexture"));
 	dirIcon->Load();
 
-	picIcon = new Texture(-2, std::string("Settings/EngineResources/picture.rgtexture"));
+	picIcon = new Texture(-2, std::string("Settings/EngineResources/picture.cbtexture"));
 	picIcon->Load();
 
-	modelIcon = new Texture(-3, std::string("Settings/EngineResources/model.rgtexture"));
+	modelIcon = new Texture(-3, std::string("Settings/EngineResources/model.cbtexture"));
 	modelIcon->Load();
 
-	sceneIcon = new Texture(-4, std::string("Settings/EngineResources/logo.rgtexture"));
+	sceneIcon = new Texture(-4, std::string("Settings/EngineResources/logo.cbtexture"));
 	sceneIcon->Load();
 
 	return true;

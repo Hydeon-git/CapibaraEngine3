@@ -15,7 +15,7 @@
 
 void MeshImporter::ReImportMesh(const aiMesh* mesh, const aiScene* scene, JsonParsing& json, std::string& library, std::string& path, ModelParameters& data)
 {
-	RG_PROFILING_FUNCTION("Importing mesh");
+	CB_PROFILING_FUNCTION("Importing mesh");
 
 	std::vector<float3> vertices;
 	std::vector<float3> norms;
@@ -88,7 +88,7 @@ void MeshImporter::ReImportMesh(const aiMesh* mesh, const aiScene* scene, JsonPa
 
 void MeshImporter::ImportMesh(const aiMesh* mesh, const aiScene* scene, JsonParsing& json, std::string& path, std::vector<uint>& uids)
 {
-	RG_PROFILING_FUNCTION("Importing mesh");
+	CB_PROFILING_FUNCTION("Importing mesh");
 
 	std::vector<float3> vertices;
 	std::vector<float3> norms;

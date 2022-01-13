@@ -20,7 +20,7 @@ namespace Dialogs
 		openFile.lpstrFile = sizeFile;
 		openFile.nMaxFile = sizeof(openFile);
 		openFile.lpstrFilter = path;
-		openFile.lpstrDefExt = "ragnar";
+		openFile.lpstrDefExt = "capi";
 		openFile.nFilterIndex = 1;
 		openFile.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST | OFN_NOCHANGEDIR;
 		if (GetOpenFileName(&openFile) == TRUE)
@@ -44,7 +44,7 @@ namespace Dialogs
 		openFile.lpstrFile = sizeFile;
 		openFile.nMaxFile = sizeof(openFile);
 		openFile.lpstrFilter = path;
-		openFile.lpstrDefExt = "ragnar";
+		openFile.lpstrDefExt = "capi";
 		openFile.nFilterIndex = 1;
 		openFile.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST | OFN_NOCHANGEDIR;
 		if (GetSaveFileName(&openFile) == TRUE)

@@ -19,16 +19,13 @@ AboutMenu::~AboutMenu()
 
 bool AboutMenu::Update(float dt)
 {
-	if (ImGui::Begin("About Ragnar Engine", &active))
+	if (ImGui::Begin("About Capibara Engine", &active))
 	{
-		ImGui::TextWrapped("Ragnar Engine v0.3");
-		ImGui::NewLine();
-		ImGui::TextWrapped
-		(" This is a videogame engine created for our game engine project. We are two students, Lucas Perez and Oriol Bernal, and the final goal for this engine is"
-			" to create a videogame."
-		);
-		ImGui::TextWrapped("By Oriol Bernal & Lucas Perez");
-		ImGui::NewLine();
+		ImGui::Separator();
+		ImGui::Text("Capibara Engine\n");
+		ImGui::Text("\nDeveloped for Videogame Engines Class in CITM-UPC\n");
+		ImGui::Text("\nBy Albert Pou, Arnau Bonada and Pol Pallares\n");
+		ImGui::Separator();
 
 		ImGui::TextWrapped("3rd Party Libraries used:");
 		SDL_version sdlVer;
@@ -42,36 +39,22 @@ bool AboutMenu::Update(float dt)
 		ImGui::TextWrapped("-DevIL version 1.8.0");
 		ImGui::TextWrapped("-PhysFS version %d.%d.%d", PHYSFS_VER_MAJOR, PHYSFS_VER_MINOR, PHYSFS_VER_PATCH);
 
-		ImGui::NewLine();
-		ImGui::TextWrapped("License:");
-		ImGui::NewLine();
-		ImGui::TextWrapped("MIT License");
-		ImGui::NewLine();
-		ImGui::TextWrapped("Copyright(c) 2021 Oriol Bernal Martinez & Lucas Perez Garcia");
-		ImGui::NewLine();
-		ImGui::TextWrapped(
-			"Permission is hereby granted, free of charge, to any person obtaining a copy"
-			"of this softwareand associated documentation files(the 'Software'), to deal"
-			"in the Software without restriction, including without limitation the rights"
-			"to use, copy, modify, merge, publish, distribute, sublicense, and /or sell"
-			"copies of the Software, and to permit persons to whom the Software is"
-			"furnished to do so, subject to the following conditions : "
-		);
-		ImGui::NewLine();
-		ImGui::TextWrapped(
-			"The above copyright noticeand this permission notice shall be included in all"
-			"copies or substantial portions of the Software."
-		);
-		ImGui::NewLine();
-		ImGui::TextWrapped(
-			"THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR"
-			"IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,"
-			"FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE"
-			"AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER"
-			"LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,"
-			"OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE"
-			"SOFTWARE."
-		);
+		ImGui::Separator();
+		ImGui::Text("LICENSE\n");
+		ImGui::Separator();
+
+		ImGui::Text("MIT License\n\n");
+		ImGui::Text("Copyright (c) 2021 CapibaraEngine\n\n");
+		ImGui::Text("Permission is hereby granted, free of charge, to any person obtaining a copy\n\nof this software and associated documentation files (the 'Software'), to deal\n");
+		ImGui::Text("in the Software without restriction, including without limitation the rights\n\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\n");
+		ImGui::Text("copies of the Software, and to permit persons to whom the Software is\n\nfurnished to do so, subject to the following conditions : \n");
+		ImGui::Text("\n");
+		ImGui::Text("The above copyright notice and this permission notice shall be included in all\n\ncopies or substantial portions of the Software.\n");
+		ImGui::Text("\n");
+		ImGui::Text("THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, \n");
+		ImGui::Text("FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n");
+		ImGui::Text("LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\n");
+		ImGui::Text("SOFTWARE.\n");
 	}
 	ImGui::End();
 

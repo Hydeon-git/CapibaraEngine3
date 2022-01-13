@@ -196,7 +196,7 @@ bool ModuleRenderer3D::PreUpdate(float dt)
 // PostUpdate present buffer to screen
 bool ModuleRenderer3D::PostUpdate()
 {
-	RG_PROFILING_FUNCTION("Rendering");
+	CB_PROFILING_FUNCTION("Rendering");
 
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	// Editor Camera FBO

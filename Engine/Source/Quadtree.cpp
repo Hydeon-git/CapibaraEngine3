@@ -200,7 +200,7 @@ QuadtreeNode::~QuadtreeNode()
 
 void QuadtreeNode::Insert(GameObject* go)
 {
-	RG_PROFILING_FUNCTION("Quadtree Insert GameObject");
+	CB_PROFILING_FUNCTION("Quadtree Insert GameObject");
 
 	if (IsSlotAvailable() && (gameObjects.size() < 4 || box.HalfSize().LengthSq() <= 20.0f * 20.0f))
 	{
@@ -251,7 +251,7 @@ void QuadtreeNode::CreateChilds()
 
 void QuadtreeNode::RedistributeChilds()
 {
-	RG_PROFILING_FUNCTION("Quadtree Redistribute GameObjects");
+	CB_PROFILING_FUNCTION("Quadtree Redistribute GameObjects");
 
 	for (std::vector<GameObject*>::iterator it = gameObjects.begin(); it != gameObjects.end();)
 	{

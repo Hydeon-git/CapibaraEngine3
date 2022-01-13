@@ -17,8 +17,8 @@ class ModuleEditor;
 class FileSystem;
 
 #define CONFIG_FILENAME	"config.json"
-#define APPLICATION_NAME "Ragnar Engine"
-#define ORGANIZATION_NAME "Yggdrasil Studios"
+#define APPLICATION_NAME "Capibara Engine"
+#define ORGANIZATION_NAME "CITM UPC 2021-2022"
 
 class Application
 {

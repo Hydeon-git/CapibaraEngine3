@@ -25,7 +25,7 @@ ModuleScene::~ModuleScene()
 
 bool ModuleScene::Start()
 {
-	RG_PROFILING_FUNCTION("Starting Scene");
+	CB_PROFILING_FUNCTION("Starting Scene");
 
 	GameObject* camera = CreateGameObject(nullptr);
 	camera->CreateComponent(ComponentType::CAMERA);
@@ -50,7 +50,7 @@ bool ModuleScene::PreUpdate(float dt)
 
 bool ModuleScene::Update(float dt)
 {
-	RG_PROFILING_FUNCTION("Updating Scene");
+	CB_PROFILING_FUNCTION("Updating Scene");
 
 	if (mainCamera != nullptr) mainCamera->Update(gameTimer.GetDeltaTime());
 
@@ -117,7 +117,7 @@ bool ModuleScene::PostUpdate()
 
 bool ModuleScene::Draw()
 {
-	RG_PROFILING_FUNCTION("Scene PostUpdate");
+	CB_PROFILING_FUNCTION("Scene PostUpdate");
 
 	qTree.DebugDraw();
 
@@ -176,7 +176,7 @@ void ModuleScene::NewScene()
 
 GameObject* ModuleScene::CreateGameObject(GameObject* parent, bool createTransform)
 {
-	RG_PROFILING_FUNCTION("Creating Game Object");
+	CB_PROFILING_FUNCTION("Creating Game Object");
 
 	GameObject* object = new GameObject();
 	if (createTransform) object->CreateComponent(ComponentType::TRANSFORM);
@@ -276,7 +276,7 @@ void ModuleScene::ReparentGameObjects(uint uuid, GameObject* go)
 
 bool ModuleScene::LoadScene(const char* name)
 {
-	RG_PROFILING_FUNCTION("Loading Scene");
+	CB_PROFILING_FUNCTION("Loading Scene");
 
 	DEBUG_LOG("Loading Scene");
 
@@ -462,7 +462,7 @@ void ModuleScene::Play()
 	char* buf;
 	uint size = sceneFile.Save(&buf);
 
-	if (app->fs->Save(SCENES_FOLDER "scenePlay.ragnar", buf, size) > 0)
+	if (app->fs->Save(SCENES_FOLDER "scenePlay.capi", buf, size) > 0)
 		DEBUG_LOG("Scene saved succesfully");
 	else
 		DEBUG_LOG("Scene couldn't be saved");
@@ -475,8 +475,8 @@ void ModuleScene::Play()
 
 void ModuleScene::Stop()
 {
-	LoadScene("Assets/Scenes/scenePlay.ragnar");
-	app->fs->RemoveFile("Assets/Scenes/scenePlay.ragnar");
+	LoadScene("Assets/Scenes/scenePlay.capi");
+	app->fs->RemoveFile("Assets/Scenes/scenePlay.capi");
 	qTree.Clear();
 	qTree.Create(AABB(float3(-200, -50, -200), float3(200, 50, 200)));
 	gameState = GameState::NOT_PLAYING;

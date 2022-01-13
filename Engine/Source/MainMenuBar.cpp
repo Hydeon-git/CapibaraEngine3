@@ -44,19 +44,19 @@ bool MainMenuBar::Start()
 	//TextureImporter::ImportTexture2(std::string("Assets/Resources/PauseButtonActive.png"));
 	//TextureImporter::ImportTexture2(std::string("Assets/Resources/StopButton.png"));
 	
-	buttonPlay = new Texture(-5, std::string("Settings/EngineResources/PlayButton.rgtexture"));
+	buttonPlay = new Texture(-5, std::string("Settings/EngineResources/PlayButton.cbtexture"));
 	buttonPlay->Load();
 
-	buttonStop = new Texture(-6, std::string("Settings/EngineResources/StopButton.rgtexture"));
+	buttonStop = new Texture(-6, std::string("Settings/EngineResources/StopButton.cbtexture"));
 	buttonStop->Load();
 
-	buttonPause = new Texture(-7, std::string("Settings/EngineResources/PauseButton.rgtexture"));
+	buttonPause = new Texture(-7, std::string("Settings/EngineResources/PauseButton.cbtexture"));
 	buttonPause->Load();
 
-	buttonPauseBlue = new Texture(-8, std::string("Settings/EngineResources/PauseButtonActive.rgtexture"));
+	buttonPauseBlue = new Texture(-8, std::string("Settings/EngineResources/PauseButtonActive.cbtexture"));
 	buttonPauseBlue->Load();
 
-	buttonNextFrame = new Texture(-9, std::string("Settings/EngineResources/NextFrame.rgtexture"));
+	buttonNextFrame = new Texture(-9, std::string("Settings/EngineResources/NextFrame.cbtexture"));
 	buttonNextFrame->Load();
 
 	for (int i = 0; i < menus.size(); ++i)
@@ -82,7 +82,7 @@ bool MainMenuBar::Update(float dt)
 			}
 			if (ImGui::MenuItem("Open Project", "Ctrl + O", &ret))
 			{
-				std::string filePath = Dialogs::OpenFile("Ragnar Scene (*.ragnar)\0*.ragnar\0");
+				std::string filePath = Dialogs::OpenFile("Capibara Scene (*.capi)\0*.capi\0");
 				if (!filePath.empty()) app->scene->LoadScene(filePath.c_str());
 			}
 
@@ -92,14 +92,14 @@ bool MainMenuBar::Update(float dt)
 			{
 				if (app->scene->SceneDirectory().empty())
 				{
-					std::string filePath = Dialogs::SaveFile("Ragnar Scene (*.ragnar)\0*.ragnar\0");
+					std::string filePath = Dialogs::SaveFile("Capibara Scene (*.capi)\0*.capi\0");
 					if (!filePath.empty()) app->scene->SaveScene(filePath.c_str());
 				}
 				else app->scene->SaveScene(app->scene->SceneDirectory().c_str());
 			}
 			if (ImGui::MenuItem("Save As", "Ctrl + Shift + S", &ret))
 			{
-				std::string filePath = Dialogs::SaveFile("Ragnar Scene (*.ragnar)\0*.ragnar\0");
+				std::string filePath = Dialogs::SaveFile("Capibara Scene (*.capi)\0*.capi\0");
 				if (!filePath.empty()) app->scene->SaveScene(filePath.c_str());
 			}
 			if (ImGui::MenuItem("Exit", "ESC", &ret))
@@ -186,18 +186,18 @@ bool MainMenuBar::Update(float dt)
 		if (ImGui::BeginMenu("Help"))
 		{
 			ImGui::MenuItem("Demo Menu", NULL, &showMenu);
-			ImGui::MenuItem("About Ragnar Engine", "", &menus[(int)Menus::ABOUT]->active);
+			ImGui::MenuItem("About", "", &menus[(int)Menus::ABOUT]->active);
 			if (ImGui::MenuItem("Documentation", "F1", &ret))
 			{
-				app->RequestBrowser("https://github.com/UriKurae/Ragnar-Engine");
+				app->RequestBrowser("https://github.com/Hydeon-git/CapibaraEngine3");
 			}
 			if (ImGui::MenuItem("Report a Bug", "", &ret))
 			{
-				app->RequestBrowser("https://github.com/UriKurae/Ragnar-Engine/issues");
+				app->RequestBrowser("https://github.com/Hydeon-git/CapibaraEngine3/issues");
 			}
 			if (ImGui::MenuItem("Download latest", "", &ret))
 			{
-				app->RequestBrowser("https://github.com/UriKurae/Ragnar-Engine/releases");
+				app->RequestBrowser("https://github.com/Hydeon-git/CapibaraEngine3/releases");
 			}
 			ImGui::EndMenu();
 		}
@@ -228,7 +228,7 @@ bool MainMenuBar::Update(float dt)
 		{
 			if (app->scene->SceneDirectory().empty())
 			{
-				std::string filePath = Dialogs::SaveFile("Ragnar Scene (*.ragnar)\0*.ragnar\0");
+				std::string filePath = Dialogs::SaveFile("Capibara Scene (*.capi)\0*.capi\0");
 				if (!filePath.empty()) app->scene->SaveScene(filePath.c_str());
 			}
 			else
@@ -302,7 +302,7 @@ bool MainMenuBar::Update(float dt)
 	if (app->input->GetKey(SDL_SCANCODE_LCTRL) == KeyState::KEY_REPEAT &&
 		app->input->GetKey(SDL_SCANCODE_O) == KeyState::KEY_DOWN)
 	{
-		std::string filePath = Dialogs::OpenFile("Ragnar Scene (*.ragnar)\0*.ragnar\0");
+		std::string filePath = Dialogs::OpenFile("Capibara Scene (*.capi)\0*.capi\0");
 		if (!filePath.empty())
 		{
 			app->scene->LoadScene(filePath.c_str());
@@ -313,7 +313,7 @@ bool MainMenuBar::Update(float dt)
 		app->input->GetKey(SDL_SCANCODE_LSHIFT) == KeyState::KEY_REPEAT &&
 		app->input->GetKey(SDL_SCANCODE_S) == KeyState::KEY_DOWN)
 	{
-		std::string filePath = Dialogs::SaveFile("Ragnar Scene (*.ragnar)\0*.ragnar\0");
+		std::string filePath = Dialogs::SaveFile("Capibara Scene (*.capi)\0*.capi\0");
 		if (!filePath.empty()) app->scene->SaveScene(filePath.c_str());
 	}
 	else if (app->input->GetKey(SDL_SCANCODE_LCTRL) == KeyState::KEY_REPEAT &&
@@ -321,7 +321,7 @@ bool MainMenuBar::Update(float dt)
 	{
 		if (app->scene->SceneDirectory().empty())
 		{
-			std::string filePath = Dialogs::SaveFile("Ragnar Scene (*.ragnar)\0*.ragnar\0");
+			std::string filePath = Dialogs::SaveFile("Capibara Scene (*.capi)\0*.capi\0");
 			if (!filePath.empty()) app->scene->SaveScene(filePath.c_str());
 		}
 		else app->scene->SaveScene(app->scene->SceneDirectory().c_str());

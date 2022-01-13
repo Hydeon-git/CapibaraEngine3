@@ -109,7 +109,7 @@ void Application::PrepareUpdate()
 // ---------------------------------------------
 void Application::FinishUpdate()
 {
-	RG_PROFILING_FUNCTION("Finishing Update");
+	CB_PROFILING_FUNCTION("Finishing Update");
 
 	if (loadRequested) LoadConfig();
 	if (saveRequested) SaveConfig();

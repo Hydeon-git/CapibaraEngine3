@@ -18,7 +18,7 @@
 
 void ModelImporter::ReImport(std::string& assetsPath, std::string& library, ModelParameters& parameters)
 {
-	RG_PROFILING_FUNCTION("Reimporting Model");
+	CB_PROFILING_FUNCTION("Reimporting Model");
 
 	std::string p = assetsPath;
 
@@ -61,7 +61,7 @@ void ModelImporter::ReImport(std::string& assetsPath, std::string& library, Mode
 
 void ModelImporter::ImportModel(std::string& path)
 {
-	RG_PROFILING_FUNCTION("Importing Model");
+	CB_PROFILING_FUNCTION("Importing Model");
 
 	std::string p = path;
 
@@ -111,7 +111,7 @@ void ModelImporter::SaveModel(std::string& path, JsonParsing& json)
 
 void ModelImporter::LoadModel(std::string& path)
 {
-	RG_PROFILING_FUNCTION("Loading Model");
+	CB_PROFILING_FUNCTION("Loading Model");
 	char* buffer = nullptr;
 
 	app->fs->Load(path.c_str(), &buffer);

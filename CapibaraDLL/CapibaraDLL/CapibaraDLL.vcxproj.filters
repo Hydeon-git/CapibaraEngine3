@@ -21,6 +21,9 @@
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CapibaraScripts.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="MathLibrary.h">
       <Filter>Header Files</Filter>
     </ClInclude>

@@ -36,7 +36,7 @@ bool ModuleEditor::Start()
 
 bool ModuleEditor::Update(float dt)
 {
-	RG_PROFILING_FUNCTION("Updating Module Editor");
+	CB_PROFILING_FUNCTION("Updating Module Editor");
 	bool ret = true;
 
 	ImGui_ImplOpenGL3_NewFrame();
@@ -90,7 +90,7 @@ bool ModuleEditor::Update(float dt)
 
 bool ModuleEditor::Draw(Framebuffer* editorBuffer, Framebuffer* gameBuffer)
 {
-	RG_PROFILING_FUNCTION("Drawing Module Editor");
+	CB_PROFILING_FUNCTION("Drawing Module Editor");
 	
 	viewport->Draw(editorBuffer, gameBuffer, currentOperation);
 	gameView->Draw(gameBuffer);
