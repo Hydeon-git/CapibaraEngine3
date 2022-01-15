@@ -1,18 +1,34 @@
 #include "Application.h"
 #include "Globals.h"
+#include "Time.h"
 
 // Modules
 #include "ModuleScript.h"
+#include "ModuleScene.h"
+#include "ModuleInput.h"
 
+// GameObject & Components
 #include "GameObject.h"
+#include "TransformComponent.h"
+
 
 ModuleScript::ModuleScript() {}
-
 ModuleScript::~ModuleScript() {}
 
 bool ModuleScript::Start()
 {
-	//GameObject* wheels = GameObject::FindWithName("Lower_Tank");
+	GameObject* tankGo = GameObject::FindWithName("Tank");
+	if (tankGo != nullptr)
+	{
+		tankGoTransform = (TransformComponent*)tankGo->GetComponent(ComponentType::TRANSFORM);
+	}
+	
+	GameObject* turretGo = GameObject::FindWithName("TankTurret");
+	if (turretGo != nullptr)
+	{
+		turretGoTransform = (TransformComponent*)turretGo->GetComponent(ComponentType::TRANSFORM);
+	}
+	
 
 	return true;
 }
@@ -24,6 +40,7 @@ bool ModuleScript::PreUpdate(float dt)
 
 bool ModuleScript::Update(float dt)
 {
+	Move();
 	return true;
 }
 
@@ -37,14 +54,14 @@ bool ModuleScript::CleanUp()
 	return true;
 }
 
-GameObject* ModuleScript::GetRoot(bool ignore_prefab)
-{	
-	if (baseGO->GetChilds().size() == 0)
+void ModuleScript::Move()
+{
+	if ((app->scene->GetGameState() == GameState::PLAYING) && (app->input->GetKey(SDL_SCANCODE_W) == KeyState::KEY_DOWN))
 	{
-		return baseGO;
-	}			
-	else
+		velocity += acceleration * app->scene->gameTimer.GetDeltaTime();
+	}
+	if ((app->scene->GetGameState() == GameState::PLAYING) && (app->input->GetKey(SDL_SCANCODE_S) == KeyState::KEY_DOWN))
 	{
-		return baseGO->GetChilds().back();
-	}			
+		velocity -= acceleration * app->scene->gameTimer.GetDeltaTime();
+	}
 }

@@ -36,7 +36,7 @@ bool ModuleScene::Start()
 	ResourceManager::GetInstance()->ImportResourcesFromLibrary();
 	ResourceManager::GetInstance()->ImportAllResources();
 	ImportPrimitives();
-	ResourceManager::GetInstance()->LoadResource(std::string("Assets/Resources/Street.fbx"));
+	LoadScene("Assets/Scenes/tank.capi");
 
 	return true;
 }
@@ -439,15 +439,6 @@ void ModuleScene::ImportPrimitives()
 	texCoords.clear();
 }
 
-//void ModuleScene::AddToQuadtree(GameObject* go)
-//{
-//	qTree.Insert(go);
-//}
-//
-//void ModuleScene::RemoveFromQuadtree(GameObject* go)
-//{
-//	qTree.Remove(go);
-//}
 
 void ModuleScene::Play()
 {
@@ -470,7 +461,6 @@ void ModuleScene::Play()
 	RELEASE_ARRAY(buf);
 	
 	gameState = GameState::PLAYING;
-	gameTimer.ResetTimer();
 }
 
 void ModuleScene::Stop()

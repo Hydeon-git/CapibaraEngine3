@@ -62,6 +62,12 @@ public:
 	void OnSave(JsonParsing& node, JSON_Array* array);
 
 	inline const std::vector<Component*> GetComponents() const { return components; }
+	Component* GetComponent(const ComponentType& type);
+
+	// Find
+	static GameObject* FindWithName(const char* name);
+	GameObject* Find(const char* name);
+
 
 	template<typename T>
 	T* GetComponent();

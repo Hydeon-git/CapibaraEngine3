@@ -3,7 +3,7 @@
 #include "Module.h"
 
 class GameObject;
-
+class TransformComponent;
 
 class ModuleScript : public Module
 {
@@ -15,9 +15,15 @@ public:
 	bool PreUpdate(float dt) override;
 	bool Update(float dt) override;
 	bool PostUpdate() override;
-	bool CleanUp() override;
+	bool CleanUp() override;	
 
-	GameObject* GetRoot(bool ignore_prefab);
+	void Move();
+
+	TransformComponent* tankGoTransform;
+	TransformComponent* turretGoTransform;
+
+	float velocity = 0.0f;
+	float acceleration = 4.0f;
 
 private:
 	GameObject* baseGO = nullptr;

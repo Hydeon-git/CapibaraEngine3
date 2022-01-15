@@ -1,8 +1,11 @@
+#include "Application.h"
+#include "Globals.h"
+
 #include "GameObject.h"
 
-#include "Application.h"
 #include "ModuleScene.h"
-#include "Globals.h"
+#include "ModuleScript.h"
+
 
 #include "JsonParsing.h"
 #include "VertexBuffer.h"
@@ -53,14 +56,6 @@ bool GameObject::Update(float dt)
 
 void GameObject::Draw()
 {
-	// TODO: Check this in the future
-	//if (!GetAllComponent<MeshComponent>().empty())
-	//{
-	//	for (int i = 0; i < GetAllComponent<MeshComponent>().size(); ++i)
-	//	{
-	//		GetAllComponent<MeshComponent>()[i]->Draw();
-	//	}
-	//}
 	for (int i = 0; i < components.size(); ++i)
 	{
 		Component* component = components[i];
@@ -437,4 +432,48 @@ void GameObject::OnSave(JsonParsing& node, JSON_Array* array)
 	{
 		children[i]->OnSave(node, array);
 	}
+}
+
+Component* GameObject::GetComponent(const ComponentType& type)
+{
+	std::vector<Component*>::iterator item = components.begin();
+	for (; item != components.end(); ++item) 
+	{
+		if (*item != nullptr && (*item)->GetType() == type) 
+		{
+			return *item;
+		}
+	}
+	return nullptr;
+}
+
+GameObject* GameObject::FindWithName(const char* name)
+{
+	return app->scene->GetRoot()->Find(name);
+}
+
+GameObject* GameObject::Find(const char* name)
+{
+	GameObject* ret = nullptr;	
+	std::vector<GameObject*>::iterator item = children.begin();
+		
+	for (; item != children.end(); ++item)
+	{
+		if (*item != nullptr)
+		{
+			if ((*item)->name == name)
+			{
+				ret = (*item);
+			}
+			else if (ret != nullptr)
+			{
+				break;
+			}
+			else
+			{
+				ret = (*item)->Find(name);
+			}
+		}
+	}
+	return ret;
 }

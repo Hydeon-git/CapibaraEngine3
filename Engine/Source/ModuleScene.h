@@ -81,15 +81,15 @@ public:
 	void SetGameDeltaTime(float deltaTime) { gameTimer.SetDesiredDeltaTime(deltaTime); }
 
 	CameraComponent* mainCamera;
+	GameTimer gameTimer;
+
 private:
 	GameObject* root;
 	Quadtree qTree;
 	GameState gameState;
 	bool frameSkip;
 
-	bool resetQuadtree;
-
-	GameTimer gameTimer;
+	bool resetQuadtree;	
 	GameObject* goToRecalculate;
 
 	std::string sceneDir;

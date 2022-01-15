@@ -15,7 +15,7 @@ GameTimer::~GameTimer()
 void GameTimer::Start()
 {
 	frameCounter++;
-	/*deltaTime = (float)GetTime() / 1000.0f;*/
+	deltaTime = (float)GetTime() / 1000.0f;
 	timer = SDL_GetTicks();
 }
 

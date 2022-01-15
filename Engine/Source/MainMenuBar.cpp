@@ -37,13 +37,7 @@ MainMenuBar::~MainMenuBar()
 }
 
 bool MainMenuBar::Start()
-{
-	//TextureImporter::ImportTexture(std::string("Assets/Resources/PlayButton.png"));
-	//TextureImporter::ImportTexture(std::string("Assets/Resources/PauseButton.png"));
-	//TextureImporter::ImportTexture(std::string("Assets/Resources/NextFrame.png"));
-	//TextureImporter::ImportTexture2(std::string("Assets/Resources/PauseButtonActive.png"));
-	//TextureImporter::ImportTexture2(std::string("Assets/Resources/StopButton.png"));
-	
+{	
 	buttonPlay = new Texture(-5, std::string("Settings/EngineResources/PlayButton.cbtexture"));
 	buttonPlay->Load();
 

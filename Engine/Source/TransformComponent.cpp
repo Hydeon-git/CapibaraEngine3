@@ -91,10 +91,7 @@ void TransformComponent::OnEditor()
 {
 	if (ImGui::CollapsingHeader("Transform"))
 	{
-		ImGui::PushItemWidth(90);
-		//std::string test = std::to_string(position.x);
-		//char* pos = new char[test.length()];
-		//strcpy(pos, test.c_str());
+		ImGui::PushItemWidth(90);		
 		
 		ShowTransformationInfo();
 

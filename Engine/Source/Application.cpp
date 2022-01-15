@@ -32,13 +32,13 @@ Application::Application()
 	AddModule(window);
 	AddModule(camera);
 	AddModule(input);
-	AddModule(scripting);
 	
 	// Scenes
 	AddModule(scene);
 	AddModule(editor);
 
 	AddModule(renderer3D);
+	AddModule(scripting);
 
 	loadRequested = false;
 	saveRequested = false;
@@ -176,9 +176,7 @@ void Application::LogConsole(const char* string)
 }
 
 void Application::SetFPSLimit(const int fps)
-{
-	/*if (fps > 0) cappedMs = 1000 / fps;
-	else cappedMs = 0;*/
+{	
 	if (fps > 0) engineTimer.SetDesiredCappedMs(1000 / fps);
 	else engineTimer.SetDesiredCappedMs(0);
 }
@@ -186,10 +184,6 @@ void Application::SetFPSLimit(const int fps)
 void Application::SaveConfig()
 {
 	DEBUG_LOG("Saving configuration");
-
-	/*JSON_Value* root = jsonFile.GetRootValue();
-
-	JsonParsing application = jsonFile.SetChild(root, "App");*/
 
 	JsonParsing jsonFile;
 
@@ -211,7 +205,6 @@ void Application::SaveConfig()
 
 	RELEASE_ARRAY(buf);
 
-	//jsonFile.SerializeFile(root, CONFIG_FILENAME);
 	saveRequested = false;
 }
 
