@@ -36,6 +36,8 @@ public:
 
 	inline AABB GetLocalAABB() { return localBoundingBox; }
 	const std::shared_ptr<Mesh> GetMesh() const { return mesh; }
+
+	std::shared_ptr<Mesh> mesh;
 private:
 	TransformComponent* transform;
 	MaterialComponent* material;
@@ -44,9 +46,7 @@ private:
 	float3 colorNormal;
 	
 	bool faceNormals;
-	bool verticesNormals;
-
-	std::shared_ptr<Mesh> mesh;
+	bool verticesNormals;	
 
 	AABB localBoundingBox;
 

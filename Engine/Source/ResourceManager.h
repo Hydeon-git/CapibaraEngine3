@@ -43,6 +43,7 @@ public:
 	Mesh* IsMeshLoaded(std::string path);
 	void RemoveMesh(Mesh* mesh);
 
+	u64 GetRandomID();
 private:
 	ResourceManager();
 

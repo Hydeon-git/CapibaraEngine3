@@ -57,9 +57,13 @@ public:
 
 	void MoveChildrenUp(GameObject *child);
 	void MoveChildrenDown(GameObject *child);
+	
+	bool IsParentEnabled() const;
 
 	void OnLoad(JsonParsing& node);
 	void OnSave(JsonParsing& node, JSON_Array* array);
+
+	Component* GetComponent(const ComponentType& type);
 
 	inline const std::vector<Component*> GetComponents() const { return components; }
 

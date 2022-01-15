@@ -17,6 +17,7 @@
 #include <stack>
 
 #include "Profiling.h"
+#include "RandomHelper.h"
 
 ResourceManager* ResourceManager::instance = nullptr;
 
@@ -368,4 +369,9 @@ void ResourceManager::RemoveMesh(Mesh* mesh)
 			break;
 		}
 	}
+}
+
+u64 ResourceManager::GetRandomID()
+{
+	return Random::GetRandomID();
 }

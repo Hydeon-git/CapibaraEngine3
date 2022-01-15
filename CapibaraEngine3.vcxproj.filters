@@ -49,6 +49,9 @@
     <Filter Include="Sources\Resources\Importers">
       <UniqueIdentifier>{3c644c45-199c-460f-9c95-bb1da2fa630e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sources\Scripting">
+      <UniqueIdentifier>{62f913e3-4668-452f-915b-e7d4a1a0f467}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Source\Module.h">
@@ -262,6 +265,24 @@
     <ClInclude Include="Engine\Source\Script.h">
       <Filter>Sources\Resources</Filter>
     </ClInclude>
+    <ClInclude Include="Engine\Source\Capibara.h">
+      <Filter>Sources\Scripting</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Source\Time.h">
+      <Filter>Sources\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Source\ModuleScripting.h">
+      <Filter>Sources\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Source\Scene.h">
+      <Filter>Sources\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Source\RandomHelper.h">
+      <Filter>Sources\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Source\Octree.h">
+      <Filter>Sources\Scripting</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\Source\ModuleCamera3D.cpp">
@@ -434,6 +455,18 @@
     </ClCompile>
     <ClCompile Include="Engine\Source\Script.cpp">
       <Filter>Sources\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Source\Capibara.cpp">
+      <Filter>Sources\Scripting</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Source\ModuleScripting.cpp">
+      <Filter>Sources\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Source\Scene.cpp">
+      <Filter>Sources\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Source\Octree.cpp">
+      <Filter>Sources\Scripting</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

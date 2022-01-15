@@ -2,6 +2,7 @@
 
 #include "Application.h"
 #include "ModuleScene.h"
+#include "ModuleScripting.h"
 #include "Globals.h"
 
 #include "JsonParsing.h"
@@ -52,15 +53,7 @@ bool GameObject::Update(float dt)
 }
 
 void GameObject::Draw()
-{
-	// TODO: Check this in the future
-	//if (!GetAllComponent<MeshComponent>().empty())
-	//{
-	//	for (int i = 0; i < GetAllComponent<MeshComponent>().size(); ++i)
-	//	{
-	//		GetAllComponent<MeshComponent>()[i]->Draw();
-	//	}
-	//}
+{	
 	for (int i = 0; i < components.size(); ++i)
 	{
 		Component* component = components[i];
@@ -158,10 +151,6 @@ void GameObject::DrawEditor()
 
 void GameObject::DebugColliders()
 {
-	//glPushMatrix();
-	//
-	//glMultMatrixf(GetComponent<TransformComponent>()->GetTransform().Transposed().ptr());
-
 	glEnableClientState(GL_VERTEX_ARRAY);
 	vertex->Bind();
 	glVertexPointer(3, GL_FLOAT, 0, NULL);
@@ -398,6 +387,11 @@ void GameObject::MoveChildrenDown(GameObject* child)
 	}
 }
 
+bool GameObject::IsParentEnabled() const
+{
+	return parent_enabled;
+}
+
 void GameObject::OnLoad(JsonParsing& node)
 {
 	uuid = node.GetJsonNumber("UUID");
@@ -437,4 +431,15 @@ void GameObject::OnSave(JsonParsing& node, JSON_Array* array)
 	{
 		children[i]->OnSave(node, array);
 	}
+}
+
+Component* GameObject::GetComponent(const ComponentType& type)
+{
+	std::vector<Component*>::iterator item = components.begin();
+	for (; item != components.end(); ++item) {
+		if (*item != nullptr && (*item)->GetType() == type) {
+			return *item;
+		}
+	}
+	return nullptr;
 }

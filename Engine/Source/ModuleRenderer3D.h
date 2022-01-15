@@ -12,6 +12,8 @@
 typedef unsigned int GLuint;
 
 class Framebuffer;
+class CameraComponent;
+
 class ModuleRenderer3D : public Module
 {
 public:
@@ -50,6 +52,7 @@ public:
 	inline bool* GetRayCast() { return &rayCast; }
 
 	void DrawCubeDirectMode();
+	bool IsInsideFrustum(const CameraComponent* camera, const AABB& aabb);
 
 public:
 	PGrid* grid;

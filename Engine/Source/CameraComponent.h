@@ -31,9 +31,9 @@ public:
 
 	float4x4 matrixViewFrustum;
 	float4x4 matrixProjectionFrustum;
-private:
 
 	Frustum camera;
+private:	
 	TransformComponent* transform;
 	Quat currentRotation;
 	float3 currentPos;
@@ -47,4 +47,6 @@ private:
 
 	IndexBuffer* ebo;
 	VertexBuffer* vbo;
+
+	bool parent_enabled = true;
 };

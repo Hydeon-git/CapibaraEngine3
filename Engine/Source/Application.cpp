@@ -5,6 +5,7 @@
 #include "ModuleScene.h"
 #include "ModuleRenderer3D.h"
 #include "ModuleCamera3D.h"
+#include "ModuleScripting.h"
 #include "ModuleEditor.h"
 #include "FileSystem.h"
 #include "ResourceManager.h"
@@ -18,6 +19,7 @@ Application::Application()
 	scene = new ModuleScene();
 	renderer3D = new ModuleRenderer3D();
 	camera = new ModuleCamera3D();
+	scripting = new ModuleScripting();
 	editor = new ModuleEditor();
 
 	fs = new FileSystem(RESOURCES_FOLDER);
@@ -30,6 +32,7 @@ Application::Application()
 	AddModule(window);
 	AddModule(camera);
 	AddModule(input);
+	AddModule(scripting);
 	
 	// Scenes
 	AddModule(scene);

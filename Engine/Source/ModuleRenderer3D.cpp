@@ -6,7 +6,9 @@
 #include "ModuleCamera3D.h"
 #include "ModuleEditor.h"
 #include "ModuleScene.h"
+
 #include "Framebuffer.h"
+#include "CameraComponent.h"
 
 #include "glew/include/GL/glew.h"
 
@@ -492,4 +494,33 @@ void ModuleRenderer3D::DrawCubeDirectMode()
 	glVertex3fv(v7);
 
 	glEnd();
+}
+
+bool ModuleRenderer3D::IsInsideFrustum(const CameraComponent* camera, const AABB& aabb)
+{
+	float3 corners[8];
+	aabb.GetCornerPoints(corners);
+
+	Plane planes[6];
+	camera->camera.GetPlanes(planes);
+
+	for (uint i = 0; i < 6; ++i)
+	{
+		uint point_inside_plane = 8;
+
+		for (uint p = 0; p < 8; ++p)
+		{
+			if (planes[i].IsOnPositiveSide(corners[p]))
+			{
+				--point_inside_plane;
+			}
+		}
+
+		if (point_inside_plane == 0)
+		{
+			return false;
+		}
+	}
+
+	return true;
 }

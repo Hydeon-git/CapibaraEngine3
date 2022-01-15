@@ -14,6 +14,7 @@ class ModuleScene;
 class ModuleRenderer3D;
 class ModuleCamera3D;
 class ModuleEditor;
+class ModuleScripting;
 class FileSystem;
 
 #define CONFIG_FILENAME	"config.json"
@@ -58,6 +59,7 @@ public:
 	ModuleInput* input;
 	ModuleRenderer3D* renderer3D;
 	ModuleCamera3D* camera;
+	ModuleScripting* scripting;
 	ModuleEditor* editor;
 	ModuleScene* scene;
 	FileSystem* fs;
