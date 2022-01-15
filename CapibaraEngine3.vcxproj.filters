@@ -258,10 +258,10 @@
     <ClInclude Include="Engine\Source\Dialogs.h">
       <Filter>Sources\Tools</Filter>
     </ClInclude>
-    <ClInclude Include="resource.h" />
     <ClInclude Include="Engine\Source\Script.h">
       <Filter>Sources\Resources</Filter>
     </ClInclude>
+    <ClInclude Include="resource1.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\Source\ModuleCamera3D.cpp">
@@ -437,9 +437,9 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="CapibaraEngine3.rc" />
+    <ResourceCompile Include="Resource.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Output\Settings\EngineResources\logo.ico" />
+    <Image Include="..\..\..\Downloads\CapibaraLogo.ico" />
   </ItemGroup>
 </Project>

@@ -163,7 +163,7 @@
     <ClInclude Include="Engine\Source\TransformComponent.h" />
     <ClInclude Include="Engine\Source\VertexBuffer.h" />
     <ClInclude Include="Engine\Source\Viewport.h" />
-    <ClInclude Include="resource.h" />
+    <ClInclude Include="resource1.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Dependencies\Imgui\imgui.cpp" />
@@ -225,10 +225,10 @@
     <ClCompile Include="MathClient.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="CapibaraEngine3.rc" />
+    <ResourceCompile Include="Resource.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Output\Settings\EngineResources\logo.ico" />
+    <Image Include="..\..\..\Downloads\CapibaraLogo.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

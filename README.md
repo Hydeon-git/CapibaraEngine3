@@ -1,6 +1,6 @@
 # Capibara Engine
 ## Our Project
-Capibara Engine is a project developed in the subject 3D Motors for the Game Design and Development Degree in CITM-UPC Univerisity.
+Capibara Engine is a project developed in the subject 3D Engines for the Game Design and Development Degree in CITM-UPC Univerisity.
 ## Team
 #### Arnau Bonada: https://github.com/arnaubonada
 #### Albert Pou: https://github.com/Hydeon-git
