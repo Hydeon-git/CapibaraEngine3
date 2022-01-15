@@ -153,9 +153,6 @@
     <ClInclude Include="Engine\Source\AboutMenu.h">
       <Filter>Sources\Menus</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Source\FileSystem.h">
-      <Filter>Sources</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\Source\AssimpDefs.h">
       <Filter>Sources\Tools</Filter>
     </ClInclude>
@@ -262,6 +259,12 @@
       <Filter>Sources\Resources</Filter>
     </ClInclude>
     <ClInclude Include="resource1.h" />
+    <ClInclude Include="Engine\Source\FileSystem.h">
+      <Filter>Sources\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Source\ModuleScript.h">
+      <Filter>Sources\Modules</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\Source\ModuleCamera3D.cpp">
@@ -341,9 +344,6 @@
     </ClCompile>
     <ClCompile Include="Engine\Source\AboutMenu.cpp">
       <Filter>Sources\Menus</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Source\FileSystem.cpp">
-      <Filter>Sources</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Source\AssimpDefs.cpp">
       <Filter>Sources\Tools</Filter>
@@ -434,6 +434,12 @@
     </ClCompile>
     <ClCompile Include="Engine\Source\Script.cpp">
       <Filter>Sources\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Source\FileSystem.cpp">
+      <Filter>Sources\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Source\ModuleScript.cpp">
+      <Filter>Sources\Modules</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

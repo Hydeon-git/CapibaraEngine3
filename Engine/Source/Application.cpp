@@ -2,6 +2,7 @@
 #include "Globals.h"
 #include "ModuleWindow.h"
 #include "ModuleInput.h"
+#include "ModuleScript.h"
 #include "ModuleScene.h"
 #include "ModuleRenderer3D.h"
 #include "ModuleCamera3D.h"
@@ -15,6 +16,7 @@ Application::Application()
 {
 	window = new ModuleWindow();
 	input = new ModuleInput();
+	scripting = new ModuleScript();
 	scene = new ModuleScene();
 	renderer3D = new ModuleRenderer3D();
 	camera = new ModuleCamera3D();
@@ -30,6 +32,7 @@ Application::Application()
 	AddModule(window);
 	AddModule(camera);
 	AddModule(input);
+	AddModule(scripting);
 	
 	// Scenes
 	AddModule(scene);
