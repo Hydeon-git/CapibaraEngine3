@@ -55,7 +55,32 @@ Then [Pol Pallares](https://github.com/Zeta115) joined the team in at the start 
 
 
 
+
 ## Main Core Sub-systems
+
+
+## In the first assignment
+
+
+### Models and .fbx Import
+
+- Basic Shape primitives: Cube, Pyramid and Sphere.
+
+- Drag & Drop functionallity.
+
+- .fbx Objects can be loaded and be visible in the engine.
+
+- 3 different .fbx models included in the engine (/Assets folder).
+
+- Baker_house was automatically loaded at the start.
+
+- Two models in FBX format with one channel diffuse texture.
+
+- Drag&drop of FBX files from anywhere in the Hard Drive.
+
+- Drag&drop of DDS/PNG files.
+
+- GameObject structure, one for each loaded mesh. Each GameObject having 3 display-only components: Transform, Mesh and Texture.
 
 
 ### Camera
@@ -65,6 +90,10 @@ Then [Pol Pallares](https://github.com/Zeta115) joined the team in at the start 
 - Mouse wheel for zoom in and zoom out.
 
 - Holding SHIFT duplicates movement speed.
+
+- Alt+Left click to orbit around the object.
+-
+- "F" to focus the camera around the geometry.
 
 
 ### Editor Windows
@@ -83,15 +112,40 @@ Then [Pol Pallares](https://github.com/Zeta115) joined the team in at the start 
 - Exit option in general menu to exit the engine.
 
 
-### Models and .fbx Import
+### Hierarchy window
 
-- Basic Shape primitives: Cube, Pyramid and Sphere.
+- Displaying a list of all GameObjects
 
-- Drag & Drop functionallity.
+-GameObject selection
 
-- .fbx Objects can be loaded and be visible in the engine.
 
-- 3 different .fbx models included in the engine (/Assets folder).
+### Inspector
+
+- Displays information about the components of the selected GameObject
+
+- Transform: only for display purposes. Show position, rotation and scale for the selected GameObject.
+
+- Mesh: information about the loaded mesh. There should be an option to display its normals (per-triangle and per-face).
+
+- Texture: display texture size and path. There should be an option to view the selected GameObject with the checkers texture.
+
+
+### Menus
+
+- About window with github link and information about the engine
+
+- Option to turn on/off editor windows
+
+
+## In the second assignment
+
+
+
+
+
+
+
+
 
 
 
