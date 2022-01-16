@@ -1,5 +1,7 @@
 # Welcome to CapibaraEngine 3
 
+![](https://github.com/Hydeon-git/CapibaraEngine3/blob/main/Output/Assets/Resources/capilogo.png)
+
 ## Intro
 
 In this page you will find every piece of information regarding CapibaraEngine3, an university project made by a team of three students of Video Game Design and Development Degree, for the subject "3D Engines" at the Centre de la Imatge i la Tecnologia Multimedia (CITM) in Terrassa, Catalunya.
@@ -192,11 +194,17 @@ Due to the engine being done under a university project the diferent teams have 
 
 ### Scripting Contents
 
+![](https://github.com/Hydeon-git/CapibaraEngine3/blob/gh-pages/CapturaTank.PNG)
+(Image of the in-game Tank)
+
 - Tank moves using the keyboard (W,A,S,D).
 
 - Tank shoots with Left Click on the mouse(Bullets are new GameObjects and have lifetimes).
 
 - In-editor text window to edit scripts.
+
+![](https://github.com/Hydeon-git/CapibaraEngine3/blob/gh-pages/CapturaTank2.PNG)
+(Image of the Tank and turret in the scene)
 
 ## Explanatory video
 
