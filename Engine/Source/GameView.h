@@ -15,9 +15,9 @@ public:
 
 	inline float4 GetBounds() { return bounds; }
 	inline const bool GetState() const { return selected; }
-
-private:
 	float2 sizeViewport;
+private:
+	
 	float4 bounds;
 	bool active;
 

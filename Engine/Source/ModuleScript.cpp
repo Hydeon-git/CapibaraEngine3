@@ -4,9 +4,10 @@
 
 // Modules
 #include "ModuleScript.h"
-#include "ModuleScene.h"
-#include "ModuleInput.h"
 #include "ModuleWindow.h"
+#include "ModuleInput.h"
+#include "ModuleScene.h"
+#include "ModuleEditor.h"
 
 // GameObject & Components
 #include "GameObject.h"
@@ -35,6 +36,7 @@ bool ModuleScript::Start()
 	{
 		rightWheelsGoTransform = (TransformComponent*)rightWheelsGo->GetComponent(ComponentType::TRANSFORM);
 	}
+
 	GameObject* leftWheelsGo = GameObject::FindWithName("TankTracksLeft");
 	if (leftWheelsGo != nullptr)
 	{
@@ -53,6 +55,7 @@ bool ModuleScript::Update(float dt)
 {
 	Move();
 	Rotate();
+	Shoot();
 	return true;
 }
 
@@ -113,7 +116,7 @@ void ModuleScript::Rotate()
 	{
 		if (app->input->GetKey(SDL_SCANCODE_A) == KeyState::KEY_REPEAT)
 		{
-			angle += rotateVelocity;
+			angle += rotateVelocity * app->scene->gameTimer.GetDeltaTime();
 			chassisGoTransform->SetRotation(Quat::FromEulerXYZ(0, DegToRad(angle), 0));
 			rightWheelsGoTransform->SetRotation(chassisGoTransform->GetRotation());
 			leftWheelsGoTransform->SetRotation(chassisGoTransform->GetRotation());
@@ -121,7 +124,7 @@ void ModuleScript::Rotate()
 
 		if (app->input->GetKey(SDL_SCANCODE_D) == KeyState::KEY_REPEAT)
 		{
-			angle -= rotateVelocity;
+			angle -= rotateVelocity * app->scene->gameTimer.GetDeltaTime();
 			chassisGoTransform->SetRotation(Quat::FromEulerXYZ(0, DegToRad(angle), 0));
 			rightWheelsGoTransform->SetRotation(chassisGoTransform->GetRotation());
 			leftWheelsGoTransform->SetRotation(chassisGoTransform->GetRotation());
@@ -129,9 +132,9 @@ void ModuleScript::Rotate()
 
 		float2 mouse = { app->input->GetMousePosition().x, app->input->GetMousePosition().y };
 		float3 rotation = turretGoTransform->GetRotation().ToEulerXYZ();
-		int width = app->window->width;
+		int width = app->editor->gameView->sizeViewport.x;
 		int middle = width / 2;
-		int height = app->window->height;
+		int height = app->editor->gameView->sizeViewport.x;
 
 		float3 wheels = RadToDeg(chassisGoTransform->GetRotation().ToEulerXYZ());
 
@@ -205,8 +208,13 @@ void ModuleScript::Rotate()
 				rotation.y -= wheels.y + 90;
 			}
 		}
-
+		
 		turretGoTransform->SetRotation(Quat::FromEulerXYZ(DegToRad(rotation.x), DegToRad(rotation.y), DegToRad(rotation.z)));
 	}
+
+}
+
+void ModuleScript::Shoot() 
+{
 
 }

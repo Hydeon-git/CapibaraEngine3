@@ -19,6 +19,7 @@ public:
 
 	void Move();
 	void Rotate();
+	void Shoot();
 
 	TransformComponent* turretGoTransform;
 	TransformComponent* chassisGoTransform;
@@ -26,7 +27,7 @@ public:
 	TransformComponent* leftWheelsGoTransform;
 
 	float angle = 0.0f;
-	float rotateVelocity = 1.0f;
+	float rotateVelocity = 50.0f;
 
 
 	float velocity = 0.0f;
