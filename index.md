@@ -12,7 +12,7 @@ The first two original members of the CapibaraEngine are:
 
 - [Albert Pou](https://github.com/Hydeon-git)
 
-![](https://github.com/Hydeon-git/CapibaraEngine3/blob/gh-pages/foto%20albert.png)
+![](fotoAlbert.png)
 
 ### Tasked with:
 
@@ -194,7 +194,8 @@ Due to the engine being done under a university project the diferent teams have 
 
 ### Scripting Contents
 
-![](https://github.com/Hydeon-git/CapibaraEngine3/blob/gh-pages/CapturaTank.PNG)
+![](CapturaTank.PNG)
+
 (Image of the in-game Tank)
 
 - Tank moves using the keyboard (W,A,S,D).
@@ -203,7 +204,8 @@ Due to the engine being done under a university project the diferent teams have 
 
 - In-editor text window to edit scripts.
 
-![](https://github.com/Hydeon-git/CapibaraEngine3/blob/gh-pages/CapturaTank2.PNG)
+![](CapturaTank2.PNG)
+
 (Image of the Tank and turret in the scene)
 
 ## Explanatory video
