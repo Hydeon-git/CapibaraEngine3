@@ -20,18 +20,20 @@ public:
 	void Move();
 	void Rotate();
 
-	TransformComponent* tankGoTransform;
 	TransformComponent* turretGoTransform;
-	TransformComponent* tankChassisGoTransform;
+	TransformComponent* chassisGoTransform;
+	TransformComponent* rightWheelsGoTransform;
+	TransformComponent* leftWheelsGoTransform;
 
 	float angle = 0.0f;
 	float rotateVelocity = 1.0f;
 
 
 	float velocity = 0.0f;
-	float acceleration = 0.5f;
-	float maxVelocityForward = 40.0f;
-	float maxVelocityBackward = -12.0f;
+	float acceleration = 2.5f;
+	float maxVelocityForward = 30.0f;
+	float maxVelocityBackward = -10.0f;
+	float friction = 0.03f;
 private:
 	GameObject* baseGO = nullptr;
 };

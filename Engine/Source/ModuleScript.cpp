@@ -17,17 +17,11 @@ ModuleScript::ModuleScript() {}
 ModuleScript::~ModuleScript() {}
 
 bool ModuleScript::Start()
-{
-	GameObject* tankGo = GameObject::FindWithName("Tank");
-	if (tankGo != nullptr)
+{	
+	GameObject* chassisGo = GameObject::FindWithName("TankChassis");
+	if (chassisGo != nullptr)
 	{
-		tankGoTransform = (TransformComponent*)tankGo->GetComponent(ComponentType::TRANSFORM);
-	}
-	
-	GameObject* tankChassisGo = GameObject::FindWithName("TankChassis");
-	if (tankChassisGo != nullptr)
-	{
-		tankChassisGoTransform = (TransformComponent*)tankChassisGo->GetComponent(ComponentType::TRANSFORM);
+		chassisGoTransform = (TransformComponent*)chassisGo->GetComponent(ComponentType::TRANSFORM);
 	}
 	
 	GameObject* turretGo = GameObject::FindWithName("TankTurret");
@@ -36,6 +30,16 @@ bool ModuleScript::Start()
 		turretGoTransform = (TransformComponent*)turretGo->GetComponent(ComponentType::TRANSFORM);
 	}
 	
+	GameObject* rightWheelsGo = GameObject::FindWithName("TankTracksRight");
+	if (rightWheelsGo != nullptr)
+	{
+		rightWheelsGoTransform = (TransformComponent*)rightWheelsGo->GetComponent(ComponentType::TRANSFORM);
+	}
+	GameObject* leftWheelsGo = GameObject::FindWithName("TankTracksLeft");
+	if (leftWheelsGo != nullptr)
+	{
+		leftWheelsGoTransform = (TransformComponent*)leftWheelsGo->GetComponent(ComponentType::TRANSFORM);
+	}
 
 	return true;
 }
@@ -68,19 +72,37 @@ void ModuleScript::Move()
 	{
 		if (app->input->GetKey(SDL_SCANCODE_W) == KeyState::KEY_REPEAT)
 		{
-			velocity += acceleration;
+			velocity += acceleration * app->scene->gameTimer.GetDeltaTime();
 			
 		}
-
 		if (app->input->GetKey(SDL_SCANCODE_S) == KeyState::KEY_REPEAT)
 		{
-			velocity -= acceleration;
+			velocity -= acceleration * app->scene->gameTimer.GetDeltaTime();
 		}
 
 		velocity = (velocity > maxVelocityForward) ? maxVelocityForward : ((velocity < maxVelocityBackward) ? maxVelocityBackward : velocity);
+			
+		chassisGoTransform->SetPosition(chassisGoTransform->GetPosition() + chassisGoTransform->forward * velocity * app->scene->gameTimer.GetDeltaTime());
+		turretGoTransform->SetPosition(chassisGoTransform->GetPosition() + turretGoTransform->forward * velocity * app->scene->gameTimer.GetDeltaTime());
+		rightWheelsGoTransform->SetPosition(chassisGoTransform->GetPosition() + rightWheelsGoTransform->forward * velocity * app->scene->gameTimer.GetDeltaTime());
+		leftWheelsGoTransform->SetPosition(chassisGoTransform->GetPosition() + leftWheelsGoTransform->forward * velocity * app->scene->gameTimer.GetDeltaTime());
 
-		//float3 pos = { tankGoTransform->GetPosition().x,tankGoTransform->GetPosition().y, velocity };
-		tankChassisGoTransform->SetPosition(turretGoTransform->GetPosition() + tankChassisGoTransform->forward * velocity);
+		if (velocity > 0)
+		{
+			velocity -= friction;
+			if (velocity < 0)
+			{
+				velocity = 0;
+			}
+		}
+		else if (velocity < 0)
+		{
+			velocity += friction;
+			if (velocity > 0)
+			{
+				velocity = 0;
+			}
+		}
 	}
 
 }
@@ -92,13 +114,17 @@ void ModuleScript::Rotate()
 		if (app->input->GetKey(SDL_SCANCODE_A) == KeyState::KEY_REPEAT)
 		{
 			angle += rotateVelocity;
-			tankChassisGoTransform->SetRotation(Quat::FromEulerXYZ(0, DegToRad(angle), 0));
+			chassisGoTransform->SetRotation(Quat::FromEulerXYZ(0, DegToRad(angle), 0));
+			rightWheelsGoTransform->SetRotation(chassisGoTransform->GetRotation());
+			leftWheelsGoTransform->SetRotation(chassisGoTransform->GetRotation());
 		}
 
 		if (app->input->GetKey(SDL_SCANCODE_D) == KeyState::KEY_REPEAT)
 		{
 			angle -= rotateVelocity;
-			tankChassisGoTransform->SetRotation(Quat::FromEulerXYZ(0, DegToRad(angle), 0));
+			chassisGoTransform->SetRotation(Quat::FromEulerXYZ(0, DegToRad(angle), 0));
+			rightWheelsGoTransform->SetRotation(chassisGoTransform->GetRotation());
+			leftWheelsGoTransform->SetRotation(chassisGoTransform->GetRotation());
 		}
 
 		float2 mouse = { app->input->GetMousePosition().x, app->input->GetMousePosition().y };
@@ -107,7 +133,7 @@ void ModuleScript::Rotate()
 		int middle = width / 2;
 		int height = app->window->height;
 
-		float3 wheels = RadToDeg(tankChassisGoTransform->GetRotation().ToEulerXYZ());
+		float3 wheels = RadToDeg(chassisGoTransform->GetRotation().ToEulerXYZ());
 
 		if (wheels.x == 0 && wheels.y > 0)
 		{
