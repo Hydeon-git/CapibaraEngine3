@@ -15,15 +15,12 @@ The first two original members of the CapibaraEngine are:
 ### Tasked with:
 
 
--
+- Tank scene implementation
 
--
+- Fbx Load
 
--
+- Scripting Module
 
--
-
--
 
 - [Arnau Bonada](https://github.com/arnaubonada)
 
@@ -32,17 +29,14 @@ The first two original members of the CapibaraEngine are:
 ### Tasked with:
 
 
--
+- Tank movement and rotation systems
 
--
+- Capibara Logo implementation
 
--
+- Scrip resources
 
--
 
--
-
-Then [Pol Pallares](https://github.com/Zeta115) joined the team in at the start of the second assignment due to his team splitting up.
+- Then [Pol Pallares](https://github.com/Zeta115) joined the team in at the start of the second assignment due to his first team splitting up.
 
 ![](https://avatars.githubusercontent.com/u/60982476?v=4)
 
@@ -50,9 +44,6 @@ Then [Pol Pallares](https://github.com/Zeta115) joined the team in at the start 
 
 
 - Webpage Management
-
--
-
 
 
 
