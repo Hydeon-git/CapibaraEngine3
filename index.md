@@ -67,9 +67,9 @@ Then [Pol Pallares](https://github.com/Zeta115) joined the team in at the start 
 
 Due to the engine being done under a university project the diferent teams have a diferent sub system to program, in our case we are programing an scripting system for the third and last delivery, every student in our class agreed to fork their projects from the [Ragnar Engine](https://github.com/UriKurae/Ragnar-Engine) and their original owners were: 
 
-- Oriol Bernal ([UriKurae])(https://github.com/UriKurae)
+- Oriol Bernal ([UriKurae](https://github.com/UriKurae))
 
-- Lucas Pérez ([LucasPG14])(https://github.com/LucasPG14)
+- Lucas Pérez ([LucasPG14](https://github.com/LucasPG14))
 
 
 
