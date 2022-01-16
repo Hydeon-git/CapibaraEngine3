@@ -139,13 +139,44 @@ Then [Pol Pallares](https://github.com/Zeta115) joined the team in at the start 
 
 ## In the second assignment
 
+- The "Street environment" was loaded at the start automaticaly
+
+- The user can now use the inspector to modify a Gameobject's:
+
+· *Hierarchy*: Deleting, reparenting, creating emptys or creating children.
+
+· *Transform*: Traslading, rotating and scaling GameObjects.
+
+· *Mesh* :  Selecting and/or droping any imported mesh.
+
+· *Texture*: Selecting and/or dropping any imported texture.
+
+· The Camera as a component.
+
+- GameObjects can be picked using the mouse.
+
+- All meshes use AABB and can be discarted using Frustrum Culling(visualized in the editor).
+
+- Models, Meshes and Textures saved in our own "Library" folder
+
+- Scene serialized to a file to be loaded.
+
+- Start/ Pause/ Stop mechanics added to the simulation and recovering original state.
+
+- Editor with 2 windows: Editor view / Main in game camera viewing at the same time.
 
 
+### Resource Management
 
+- “Assets” window  showing all user assets.
 
+- The user can drop/import new files.
 
+- Asset files can be deleted through the window.
 
+- Upon start, all resources not managed inside Assets are generated in Library.
 
+- All resources use reference counting, this process is visualized in the editor.
 
 
 
@@ -157,7 +188,24 @@ Due to the engine being done under a university project the diferent teams have 
 
 - Lucas Pérez ([LucasPG14](https://github.com/LucasPG14))
 
+###  General Contents
 
+- Full Engine's Website
+
+- Default window at 1024 x 768 centered on the screen
+
+- Resizable window.
+
+- Build Loads directly from the scene
+
+
+### Scripting Contents
+
+- Tank moves using the keyboard (W,A,S,D).
+
+- Tank shoots with Left Click on the mouse(Bullets are new GameObjects and have lifetimes).
+
+- In-editor text window to edit scripts.
 
 ## Explanatory video
 
