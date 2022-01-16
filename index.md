@@ -107,7 +107,7 @@ The first two original members of the CapibaraEngine are:
 
 - Displaying a list of all GameObjects
 
--GameObject selection
+- GameObject selection
 
 
 ### Inspector
