@@ -44,6 +44,8 @@ public:
 		return mouseX;
 	}
 
+	float3 GetMousePosition();
+
 	inline int GetMouseY() const
 	{
 		return mouseY;

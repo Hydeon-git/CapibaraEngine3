@@ -29,7 +29,8 @@ public:
 
 	void OnEditor() override;
 
-	void SetPosition(const float3& newPosition);
+	void SetPosition(const float3& pos);
+	void SetRotation(const Quat& rot);
 
 	void SetTransform(float3 pos, Quat rot, float3 sca);
 	void SetTransform(float4x4 trMatrix);
@@ -44,12 +45,17 @@ public:
 	inline float4x4 GetLocalTransform() const { return localMatrix; }
 	inline float4x4 GetGlobalTransform() const { return globalMatrix; }
 	inline float3 GetPosition() const { return position; }
+	const float3 GetGlobalPosition() const;
 	inline Quat GetRotation() const { return rotation; }
 	inline float3 GetScale() const { return scale; }
 	inline float3 GetRotEditor() const { return rotationEditor; }
 
 	bool DrawVec3(std::string& name, float3& vec);
 	void ShowTransformationInfo();
+
+	float3 forward = { 0,0,0 };
+	float3 up = { 0,0,0 };
+	float3 right = { 0,0,0 };
 
 private:
 	float3 position;

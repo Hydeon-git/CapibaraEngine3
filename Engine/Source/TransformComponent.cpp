@@ -33,6 +33,17 @@ TransformComponent::TransformComponent(GameObject* own)
 		globalMatrix = localMatrix;
 	}
 
+	up = { 2 * (rotation.x * rotation.y - rotation.w * rotation.z),
+			1 - 2 * (rotation.x * rotation.x + rotation.z * rotation.z),
+			2 * (rotation.y * rotation.z + rotation.w * rotation.x) };
+	forward = { 2 * (rotation.x * rotation.z + rotation.w * rotation.y),
+			2 * (rotation.y * rotation.z - rotation.w * rotation.x),
+			1 - 2 * (rotation.x * rotation.x + rotation.y * rotation.y) };
+	right = { 1 - 2 * (rotation.y * rotation.y + rotation.z * rotation.z),
+		 2 * (rotation.x * rotation.y + rotation.w * rotation.z),
+		 2 * (rotation.x * rotation.z + rotation.w * rotation.y) };
+
+
 	for (int i = 0; i < 3; ++i)
 		rotationEditor[i] = 0;
 
@@ -106,6 +117,18 @@ void TransformComponent::SetPosition(const float3& pos)
 	UpdateTransform();
 }
 
+void TransformComponent::SetRotation(const Quat& rot)
+{
+	rotation.Set(rot.x, rot.y, rot.z, rot.w);
+
+	rotationEditor = rot.ToEulerXYZ();
+	rotationEditor.x = RadToDeg(rotationEditor.x);
+	rotationEditor.y = RadToDeg(rotationEditor.y);
+	rotationEditor.z = RadToDeg(rotationEditor.z);
+
+	UpdateTransform();
+}
+
 void TransformComponent::SetTransform(float3 pos, Quat rot, float3 sca)
 {
 	position = pos;
@@ -116,8 +139,6 @@ void TransformComponent::SetTransform(float3 pos, Quat rot, float3 sca)
 	DEBUG_LOG("This is %s", owner->GetName());
 }
 
-
-
 void TransformComponent::SetTransform(float4x4 trMatrix)
 {
 	globalMatrix = trMatrix;
@@ -125,6 +146,17 @@ void TransformComponent::SetTransform(float4x4 trMatrix)
 	
 	changeTransform = true;
 }
+
+const float3 TransformComponent::GetGlobalPosition() const
+{
+	float3 pos, scale;
+	Quat rot;
+
+	globalMatrix.Decompose(pos, rot, scale);
+
+	return pos;
+}
+
 
 bool TransformComponent::OnLoad(JsonParsing& node)
 {
@@ -169,6 +201,16 @@ void TransformComponent::UpdateTransform()
 	{
 		globalMatrix = localMatrix;
 	}
+	up = { 2 * (rotation.x * rotation.y - rotation.w * rotation.z),
+			1 - 2 * (rotation.x * rotation.x + rotation.z * rotation.z),
+			2 * (rotation.y * rotation.z + rotation.w * rotation.x) };
+	forward = { 2 * (rotation.x * rotation.z + rotation.w * rotation.y),
+				2 * (rotation.y * rotation.z - rotation.w * rotation.x),
+				1 - 2 * (rotation.x * rotation.x + rotation.y * rotation.y) };
+	right = { 1 - 2 * (rotation.y * rotation.y + rotation.z * rotation.z),
+			 2 * (rotation.x * rotation.y + rotation.w * rotation.z),
+			 2 * (rotation.x * rotation.z + rotation.w * rotation.y) };
+
 }
 
 void TransformComponent::UpdateChildTransform(GameObject* go)

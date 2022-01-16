@@ -40,6 +40,7 @@ public:
 
 	inline Viewport* GetViewport() { return viewport; }
 
+	GameView* gameView;
 private:
 	MainMenuBar mainMenuBar;
 
@@ -49,6 +50,5 @@ private:
 	Resource* resource;
 
 	Viewport* viewport;
-	GameView* gameView;
 	ImGuizmo::OPERATION currentOperation;
 };
