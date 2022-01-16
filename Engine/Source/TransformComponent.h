@@ -29,6 +29,8 @@ public:
 
 	void OnEditor() override;
 
+	void SetPosition(const float3& newPosition);
+
 	void SetTransform(float3 pos, Quat rot, float3 sca);
 	void SetTransform(float4x4 trMatrix);
 

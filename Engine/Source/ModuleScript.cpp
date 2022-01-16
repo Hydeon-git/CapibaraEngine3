@@ -56,12 +56,21 @@ bool ModuleScript::CleanUp()
 
 void ModuleScript::Move()
 {
-	if ((app->scene->GetGameState() == GameState::PLAYING) && (app->input->GetKey(SDL_SCANCODE_W) == KeyState::KEY_DOWN))
+	if (app->scene->GetGameState() == GameState::PLAYING)
 	{
-		velocity += acceleration * app->scene->gameTimer.GetDeltaTime();
+		if (app->input->GetKey(SDL_SCANCODE_W) == KeyState::KEY_REPEAT)
+		{
+			velocity += acceleration * app->scene->gameTimer.GetDeltaTime();
+		}
+
+		if (app->input->GetKey(SDL_SCANCODE_S) == KeyState::KEY_REPEAT)
+		{
+			velocity -= acceleration * app->scene->gameTimer.GetDeltaTime();
+		}
+
+		velocity = (velocity > maxVelocityForward) ? maxVelocityForward : ((velocity < maxVelocityBackward) ? maxVelocityBackward : velocity);
+
+		turretGoTransform->SetPosition({ turretGoTransform->GetPosition().x,turretGoTransform->GetPosition().y, velocity });
 	}
-	if ((app->scene->GetGameState() == GameState::PLAYING) && (app->input->GetKey(SDL_SCANCODE_S) == KeyState::KEY_DOWN))
-	{
-		velocity -= acceleration * app->scene->gameTimer.GetDeltaTime();
-	}
+
 }

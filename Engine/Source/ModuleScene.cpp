@@ -13,6 +13,7 @@
 
 #include "Profiling.h"
 
+
 ModuleScene::ModuleScene() : sceneDir(""), mainCamera(nullptr), gameState(GameState::NOT_PLAYING), frameSkip(0), resetQuadtree(true), goToRecalculate(nullptr)
 {
 	root = new GameObject();
@@ -27,6 +28,8 @@ bool ModuleScene::Start()
 {
 	CB_PROFILING_FUNCTION("Starting Scene");
 
+	ImGui::SetWindowFocus("Scene");
+
 	GameObject* camera = CreateGameObject(nullptr);
 	camera->CreateComponent(ComponentType::CAMERA);
 	camera->SetName("Camera");
@@ -37,6 +40,7 @@ bool ModuleScene::Start()
 	ResourceManager::GetInstance()->ImportAllResources();
 	ImportPrimitives();
 	LoadScene("Assets/Scenes/tank.capi");
+	
 
 	return true;
 }
@@ -460,6 +464,8 @@ void ModuleScene::Play()
 
 	RELEASE_ARRAY(buf);
 	
+	ImGui::SetWindowFocus("Game");
+
 	gameState = GameState::PLAYING;
 }
 
@@ -469,6 +475,9 @@ void ModuleScene::Stop()
 	app->fs->RemoveFile("Assets/Scenes/scenePlay.capi");
 	qTree.Clear();
 	qTree.Create(AABB(float3(-200, -50, -200), float3(200, 50, 200)));
+	
+	ImGui::SetWindowFocus("Scene");
+	
 	gameState = GameState::NOT_PLAYING;
 }
 

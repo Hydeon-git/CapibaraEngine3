@@ -99,6 +99,13 @@ void TransformComponent::OnEditor()
 	}
 }
 
+void TransformComponent::SetPosition(const float3& pos)
+{
+	position = pos;
+
+	UpdateTransform();
+}
+
 void TransformComponent::SetTransform(float3 pos, Quat rot, float3 sca)
 {
 	position = pos;
@@ -108,6 +115,8 @@ void TransformComponent::SetTransform(float3 pos, Quat rot, float3 sca)
 	globalMatrix = float4x4::FromTRS(position, rotation, scale);	
 	DEBUG_LOG("This is %s", owner->GetName());
 }
+
+
 
 void TransformComponent::SetTransform(float4x4 trMatrix)
 {
