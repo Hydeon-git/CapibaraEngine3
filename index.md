@@ -10,17 +10,49 @@ The first two original members of the CapibaraEngine are:
 
 - [Albert Pou](https://github.com/Hydeon-git)
 
-![](https://avatars.githubusercontent.com/u/61042411?v=4)
+![](https://github.com/Hydeon-git/CapibaraEngine3/blob/gh-pages/foto%20albert.png)
 
+### Tasked with:
+
+
+-
+
+-
+
+-
+
+-
+
+-
 
 - [Arnau Bonada](https://github.com/arnaubonada)
 
 ![](https://avatars.githubusercontent.com/u/61042890?v=4)
 
+### Tasked with:
+
+
+-
+
+-
+
+-
+
+-
+
+-
 
 Then [Pol Pallares](https://github.com/Zeta115) joined the team in at the start of the second assignment due to his team splitting up.
 
 ![](https://avatars.githubusercontent.com/u/60982476?v=4)
+
+### Tasked with:
+
+
+- Webpage Management
+
+-
+
 
 
 ## Main Core Sub-systems
