@@ -1,6 +1,6 @@
 # Welcome to CapibaraEngine 3
 
-![](https://github.com/Hydeon-git/CapibaraEngine3/blob/main/Output/Assets/Resources/capilogo.png)
+![](capilogo.png)
 
 ## Intro
 
