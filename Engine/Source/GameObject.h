@@ -68,6 +68,7 @@ public:
 	static GameObject* FindWithName(const char* name);
 	GameObject* Find(const char* name);
 
+	void ToDelete();
 
 	template<typename T>
 	T* GetComponent();

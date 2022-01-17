@@ -10,7 +10,7 @@
 
 class ModuleWindow;
 class ModuleInput;
-class ModuleScript;
+class Tank;
 class ModuleScene;
 class ModuleRenderer3D;
 class ModuleCamera3D;
@@ -57,7 +57,7 @@ private:
 public:
 	ModuleWindow* window;
 	ModuleInput* input;
-	ModuleScript* scripting;
+	Tank* tank;
 	ModuleRenderer3D* renderer3D;
 	ModuleCamera3D* camera;
 	ModuleEditor* editor;

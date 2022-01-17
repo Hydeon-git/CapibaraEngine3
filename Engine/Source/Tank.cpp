@@ -1,9 +1,8 @@
 #include "Application.h"
 #include "Globals.h"
-#include "Time.h"
 
 // Modules
-#include "ModuleScript.h"
+#include "Tank.h"
 #include "ModuleWindow.h"
 #include "ModuleInput.h"
 #include "ModuleScene.h"
@@ -12,12 +11,14 @@
 // GameObject & Components
 #include "GameObject.h"
 #include "TransformComponent.h"
+#include "Resource.h"
+#include "ResourceManager.h"
 
 
-ModuleScript::ModuleScript() {}
-ModuleScript::~ModuleScript() {}
+Tank::Tank() {}
+Tank::~Tank() {}
 
-bool ModuleScript::Start()
+bool Tank::Start()
 {	
 	GameObject* chassisGo = GameObject::FindWithName("TankChassis");
 	if (chassisGo != nullptr)
@@ -31,12 +32,17 @@ bool ModuleScript::Start()
 		turretGoTransform = (TransformComponent*)turretGo->GetComponent(ComponentType::TRANSFORM);
 	}
 	
+	tankGo = GameObject::FindWithName("Tank");
+	if (tankGo != nullptr)
+	{
+		tankGoTransform = (TransformComponent*)tankGo->GetComponent(ComponentType::TRANSFORM);
+	}
+	
 	GameObject* rightWheelsGo = GameObject::FindWithName("TankTracksRight");
 	if (rightWheelsGo != nullptr)
 	{
 		rightWheelsGoTransform = (TransformComponent*)rightWheelsGo->GetComponent(ComponentType::TRANSFORM);
 	}
-
 	GameObject* leftWheelsGo = GameObject::FindWithName("TankTracksLeft");
 	if (leftWheelsGo != nullptr)
 	{
@@ -46,12 +52,12 @@ bool ModuleScript::Start()
 	return true;
 }
 
-bool ModuleScript::PreUpdate(float dt)
+bool Tank::PreUpdate(float dt)
 {
 	return true;
 }
 
-bool ModuleScript::Update(float dt)
+bool Tank::Update(float dt)
 {
 	Move();
 	Rotate();
@@ -59,17 +65,17 @@ bool ModuleScript::Update(float dt)
 	return true;
 }
 
-bool ModuleScript::PostUpdate()
+bool Tank::PostUpdate()
 {
 	return true;
 }
 
-bool ModuleScript::CleanUp()
+bool Tank::CleanUp()
 {
 	return true;
 }
 
-void ModuleScript::Move()
+void Tank::Move()
 {
 	if (app->scene->GetGameState() == GameState::PLAYING)
 	{
@@ -110,7 +116,7 @@ void ModuleScript::Move()
 
 }
 
-void ModuleScript::Rotate()
+void Tank::Rotate()
 {
 	if (app->scene->GetGameState() == GameState::PLAYING)
 	{
@@ -129,92 +135,48 @@ void ModuleScript::Rotate()
 			rightWheelsGoTransform->SetRotation(chassisGoTransform->GetRotation());
 			leftWheelsGoTransform->SetRotation(chassisGoTransform->GetRotation());
 		}
-
-		float2 mouse = { app->input->GetMousePosition().x, app->input->GetMousePosition().y };
-		float3 rotation = turretGoTransform->GetRotation().ToEulerXYZ();
-		int width = app->editor->gameView->sizeViewport.x;
-		int middle = width / 2;
-		int height = app->editor->gameView->sizeViewport.x;
-
-		float3 wheels = RadToDeg(chassisGoTransform->GetRotation().ToEulerXYZ());
-
-		if (wheels.x == 0 && wheels.y > 0)
-		{
-			rotation.y = (-(mouse.x * 180 / width) + 90) + (wheels.y);
-
-			if (mouse.y > (height / 2))
-			{
-				rotation.x = -180;
-				rotation.z = -180;
-				rotation.y -= wheels.y * 2;
-			}
-			else
-			{
-				rotation.x = 0;
-				rotation.z = 0;
-			}
-		}
-
-		else if (wheels.x == 0 && wheels.y < 0)
-		{
-			rotation.y = ((mouse.x * 180 / width)) - (wheels.y);
-
-			if (mouse.y > (height / 2))
-			{
-				rotation.y -= (-90 - wheels.y * 2);
-				rotation.x = 0;
-				rotation.z = 0;
-			}
-			else
-			{
-				rotation.y -= 270;
-				rotation.x = -180;
-				rotation.z = -180;
-			}
-		}
-
-		else if ((wheels.x == -180 || wheels.x == 180) && wheels.y > 0)
-		{
-			rotation.y = (-(mouse.x * 180 / width)) - (wheels.y);
-
-			if (mouse.y > (height / 2))
-			{
-				rotation.y -= (90 - wheels.y * 2);
-				rotation.x = -180;
-				rotation.z = -180;
-			}
-			else
-			{
-				rotation.y -= 90;
-				rotation.x = 0;
-				rotation.z = 0;
-			}
-		}
-
-		else if ((wheels.x == -180 || wheels.x == 180) && wheels.y < 0)
-		{
-			rotation.y = (-(mouse.x * 180 / width));
-
-			if (mouse.y > (height / 2))
-			{
-				rotation.x = -180;
-				rotation.z = -180;
-				rotation.y += wheels.y - 90;
-			}
-			else
-			{
-				rotation.x = 0;
-				rotation.z = 0;
-				rotation.y -= wheels.y + 90;
-			}
-		}
 		
-		turretGoTransform->SetRotation(Quat::FromEulerXYZ(DegToRad(rotation.x), DegToRad(rotation.y), DegToRad(rotation.z)));
+		float2 mouse = { app->input->GetMousePosition().x, app->input->GetMousePosition().y };
+		float2 pos = { (tankGoTransform->GetPosition().x * 6), (tankGoTransform->GetPosition().z * 6)};
+
+		float2 dir = mouse - pos;
+		float angle = atan2(dir.y, dir.x);		
+
+		turretGoTransform->SetRotation(Quat::FromEulerXYZ(0, -(angle -(pi/2)), 0));
 	}
 
 }
 
-void ModuleScript::Shoot() 
+void Tank::Shoot()
 {
+	if (app->scene->GetGameState() == GameState::PLAYING)
+	{
+		if (app->input->GetMouseButton(SDL_BUTTON_LEFT) == KeyState::KEY_DOWN)
+		{
+			GameObject* object = app->scene->CreateGameObject(tankGo);
+			bulletGoTransform = (TransformComponent*)object->GetComponent(ComponentType::TRANSFORM);
+			std::string path;
+			if (object != nullptr)
+			{
+				object->SetName("Bullet");
+				path = "Settings/EngineResources/__Cylinder.mesh";
+				if (!path.empty())
+				{
+					MeshComponent* mesh = (MeshComponent*)object->CreateComponent(ComponentType::MESH_RENDERER);
+					mesh->SetMesh(ResourceManager::GetInstance()->LoadResource(path));
+				}
 
+				bulletDir = turretGoTransform->forward;
+				bulletGoTransform->SetPosition(turretGoTransform->GetPosition());
+				/*if ((timer + lifeTime) < app->scene->gameTimer.GetTime())
+				{
+					app->scene->GetRoot()->RemoveChild(object);
+				}*/
+
+				shoot = true;
+			}
+		}
+
+		if(shoot) bulletGoTransform->SetPosition(bulletGoTransform->GetPosition() + bulletDir.Mul(bulletVelocity * app->scene->gameTimer.GetDeltaTime()));
+	}
 }

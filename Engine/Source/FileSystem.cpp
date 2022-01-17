@@ -40,7 +40,7 @@ FileSystem::FileSystem(const char* assetsPath) : name("FileSystem")
 	// Make sure standard paths exist
 	const char* dirs[] = {
 		RESOURCES_FOLDER, SETTINGS_FOLDER, LIBRARY_FOLDER, LIBRARY_TEXTURES_FOLDER, LIBRARY_MESHES_FOLDER, LIBRARY_MODELS_FOLDER,
-		LIBRARY_SCRIPTS_FOLDER, SCENES_FOLDER
+		LIBRARY_SCRIPTS_FOLDER, SCENES_FOLDER, SCRIPTS_FOLDER
 	};
 
 	for (uint i = 0; i < sizeof(dirs) / sizeof(const char*); ++i)
@@ -311,6 +311,8 @@ ResourceType FileSystem::CheckExtension(std::string& path)
 	std::list<std::string>::iterator end = modelExtension.end();
 
 	if (extension.data() == std::string(".capi")) return ResourceType::SCENE;
+
+	if (extension.data() == std::string(".cpp")) return ResourceType::SCRIPT;
 
 	for (s = modelExtension.begin(); s != end; ++s)
 	{

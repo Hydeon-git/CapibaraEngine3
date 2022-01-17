@@ -2,7 +2,7 @@
 #include "Globals.h"
 #include "ModuleWindow.h"
 #include "ModuleInput.h"
-#include "ModuleScript.h"
+#include "Tank.h"
 #include "ModuleScene.h"
 #include "ModuleRenderer3D.h"
 #include "ModuleCamera3D.h"
@@ -16,7 +16,7 @@ Application::Application()
 {
 	window = new ModuleWindow();
 	input = new ModuleInput();
-	scripting = new ModuleScript();
+	tank = new Tank();
 	scene = new ModuleScene();
 	renderer3D = new ModuleRenderer3D();
 	camera = new ModuleCamera3D();
@@ -38,7 +38,7 @@ Application::Application()
 	AddModule(editor);
 
 	AddModule(renderer3D);
-	AddModule(scripting);
+	AddModule(tank);
 
 	loadRequested = false;
 	saveRequested = false;

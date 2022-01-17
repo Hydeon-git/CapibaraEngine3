@@ -199,5 +199,5 @@ bool ModuleInput::SaveConfig(JsonParsing& node) const
 
 float3 ModuleInput::GetMousePosition()
 {
-	return float3(GetMouseX() - app->editor->gameView->GetBounds().x, (GetMouseY() - app->editor->gameView->GetBounds().y) - 19, GetMouseZ());
+	return float3(GetMouseX() - app->editor->gameView->GetBounds().x, (GetMouseY() - app->editor->gameView->GetBounds().y), GetMouseZ());
 }

@@ -262,7 +262,7 @@
     <ClInclude Include="Engine\Source\FileSystem.h">
       <Filter>Sources\Modules</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Source\ModuleScript.h">
+    <ClInclude Include="Engine\Source\Tank.h">
       <Filter>Sources\Modules</Filter>
     </ClInclude>
   </ItemGroup>
@@ -438,7 +438,7 @@
     <ClCompile Include="Engine\Source\FileSystem.cpp">
       <Filter>Sources\Modules</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Source\ModuleScript.cpp">
+    <ClCompile Include="Engine\Source\Tank.cpp">
       <Filter>Sources\Modules</Filter>
     </ClCompile>
   </ItemGroup>

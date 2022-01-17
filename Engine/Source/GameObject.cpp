@@ -4,7 +4,7 @@
 #include "GameObject.h"
 
 #include "ModuleScene.h"
-#include "ModuleScript.h"
+#include "Tank.h"
 
 
 #include "JsonParsing.h"
@@ -477,3 +477,4 @@ GameObject* GameObject::Find(const char* name)
 	}
 	return ret;
 }
+

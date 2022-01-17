@@ -15,7 +15,7 @@
 
 #include "Profiling.h"
 
-ContentBrowserMenu::ContentBrowserMenu() : sceneIcon(nullptr), dirIcon(nullptr), modelIcon(nullptr), picIcon(nullptr), Menu(true)
+ContentBrowserMenu::ContentBrowserMenu() : sceneIcon(nullptr), scriptIcon(nullptr), dirIcon(nullptr), modelIcon(nullptr), picIcon(nullptr), Menu(true)
 {
 	mainDirectory = "Assets/";
 	currentDirectory = mainDirectory;
@@ -27,6 +27,7 @@ ContentBrowserMenu::~ContentBrowserMenu()
 	RELEASE(picIcon);
 	RELEASE(modelIcon);
 	RELEASE(sceneIcon);
+	RELEASE(scriptIcon);
 }
 
 bool ContentBrowserMenu::Start()
@@ -40,8 +41,11 @@ bool ContentBrowserMenu::Start()
 	modelIcon = new Texture(-3, std::string("Settings/EngineResources/model.cbtexture"));
 	modelIcon->Load();
 
-	sceneIcon = new Texture(-4, std::string("Settings/EngineResources/logo.cbtexture"));
+	sceneIcon = new Texture(-4, std::string("Settings/EngineResources/scene.cbtexture"));
 	sceneIcon->Load();
+	
+	scriptIcon = new Texture(-5, std::string("Settings/EngineResources/script.cbtexture"));
+	scriptIcon->Load();
 
 	return true;
 }
@@ -160,6 +164,9 @@ bool ContentBrowserMenu::Update(float dt)
 			break;
 		case ResourceType::SCENE:
 			ImGui::ImageButton(sceneIcon ? (ImTextureID)sceneIcon->GetId() : "", { cell, cell });
+			break;
+		case ResourceType::SCRIPT:
+			ImGui::ImageButton(scriptIcon ? (ImTextureID)scriptIcon->GetId() : "", { cell, cell });
 			break;
 		}
 		if (ImGui::IsItemClicked())
