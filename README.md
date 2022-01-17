@@ -17,8 +17,15 @@ https://hydeon-git.github.io/CapibaraEngine3/
 - Mouse wheel for zoom in and zoom out.
 - Holding SHIFT duplicates movement speed.
 
-### Scripting Core - Tank
-- Tank moves using the keyboard (W,A,S,D).
-- Tank shoots with Left Click on the mouse (Bullets are new GameObjects and have lifetimes).
-- Text Editor window to edit scripts inside the engine.
+### General Content
+- Default window at 1024 x 768 and centered on the screen.
+- Resizable window.
+- Build loads directly from the scene with the required demo.
+- All systems work using time controls (Play/Pause/Stop).
+- Capibara Engine Custom Icons
 
+### Scripting Core - Tank
+- Tank moves and rotates using the keyboard (W, A, S, D).
+- Tank turret rotates with the mouse.
+- Tank shoots with Left Click on the mouse (Bullets are new GameObjects and have a lifetime).
+- In-editor text window to edit scripts.
