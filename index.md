@@ -26,7 +26,7 @@ The first two original members of the CapibaraEngine are:
 
 - [Arnau Bonada](https://github.com/arnaubonada)
 
-![](https://avatars.githubusercontent.com/u/61042890?v=4)
+<img src="fotoArnau.png" width="192" height="256">
 
 ### Tasked with:
 
@@ -40,7 +40,7 @@ The first two original members of the CapibaraEngine are:
 
 - Then [Pol Pallares](https://github.com/Zeta115) joined the team in at the start of the second assignment due to his first team splitting up.
 
-![](https://avatars.githubusercontent.com/u/60982476?v=4)
+<img src="fotoPol.png" width="192" height="256">
 
 ### Tasked with:
 
