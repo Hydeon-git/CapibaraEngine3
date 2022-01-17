@@ -1,7 +1,9 @@
-# Welcome to CapibaraEngine 3
 
+<h1 align="center">Capibara Engine 3
+</h1>
+<p align="center">
 <img src="capilogo.png" width="360" height="360">
-
+</p>
 
 ## Intro
 
@@ -9,19 +11,22 @@ In this page you will find every piece of information regarding CapibaraEngine3,
 
 
 ## Team Members
-The first two original members of the CapibaraEngine are:
-
 ### [Albert Pou](https://github.com/Hydeon-git)
 
 <img src="fotoAlbert.png" width="192" height="256">
 
 #### Tasked with:
 
+
 - Tank scene implementation
 
-- Tank movement and rotation systems
+- Tank Movement and Rotation Systems
 
 - Scripting Module
+
+- Capibara Custom Engine Icons
+
+- Webpage Polishing
 
 
 ###  [Arnau Bonada](https://github.com/arnaubonada)
@@ -30,11 +35,14 @@ The first two original members of the CapibaraEngine are:
 
 #### Tasked with:
 
-- Tank movement and rotation systems
+
+- Tank Movement, Rotation and Shooting Systems
 
 - Capibara Logo implementation
 
 - Scripting Module
+
+- Capibara Icons InEngine implementation
 
 - ImGui Script Text Editor
 
@@ -45,14 +53,14 @@ The first two original members of the CapibaraEngine are:
 
 #### Tasked with:
 
+
 - Webpage Creation & Management
 
 
 
 ## Main Core Sub-systems
 
-
-## In the first assignment
+## 1st Assignment - Geometry Viewer
 
 ### Models and .fbx Import
 
@@ -129,8 +137,10 @@ The first two original members of the CapibaraEngine are:
 - Option to turn on/off editor windows
 
 
-## In the second assignment
+## 2nd Assignment - Engine Editor
+On the second assignment we forked our project from our teacher [Rubén Ajenjo](https://github.com/solidajenjo/), who provided us a fresh project to continue developing CapibaraEngine under all 1st Assignment demands.
 
+This project was forked from https://github.com/solidajenjo/Engine3D.
 
 - The "Street environment" was loaded at the start automaticaly
 
@@ -173,9 +183,11 @@ The first two original members of the CapibaraEngine are:
 
 
 
-## The last assignment
+## 3rd Assignment - High Level System
 
-Due to the engine being done under a university project the diferent teams have a diferent sub system to program, in our case we are programing an scripting system for the third and last delivery, every student in our class agreed to fork their projects from the [Ragnar Engine](https://github.com/UriKurae/Ragnar-Engine) and their original owners were: 
+In the 3rd assignment the diferent teams from the class had a diferent sub system to develop, in our case our task was the scripting system for our engine. In our case the team developing [Ragnar Engine](https://github.com/UriKurae/Ragnar-Engine) kindly provided us their project to be forked.
+
+Their respective Github usernames are:
 
 - Oriol Bernal ([UriKurae](https://github.com/UriKurae))
 
@@ -214,7 +226,7 @@ Link to the video [here](https://www.youtube.com/watch?v=dQw4w9WgXcQ) or watch i
 <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-## Usefull Links
+## Release Links
 
 - Link to the code repository [here](https://github.com/Hydeon-git/CapibaraEngine3)
 
