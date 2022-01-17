@@ -1,6 +1,6 @@
 # Welcome to CapibaraEngine 3
 
-<img src="capilogo.png" width="405" height="405">
+<img src="capilogo.png" width="360" height="360">
 
 
 ## Intro
@@ -12,6 +12,7 @@ In this page you will find every piece of information regarding CapibaraEngine3,
 The first two original members of the CapibaraEngine are:
 
 - [Albert Pou](https://github.com/Hydeon-git)
+
 <img src="fotoAlbert.png" width="192" height="256">
 
 ### Tasked with:
@@ -194,7 +195,7 @@ Due to the engine being done under a university project the diferent teams have 
 
 ### Scripting Contents
 
-![](CapturaTank.PNG)
+<img src="CapturaTank.PNG" width="540" height="360">
 
 (Image of the in-game Tank)
 
@@ -204,7 +205,7 @@ Due to the engine being done under a university project the diferent teams have 
 
 - In-editor text window to edit scripts.
 
-![](CapturaTank2.PNG)
+<img src="CapturaTank2.PNG" width="540" height="360">
 
 (Image of the Tank and turret in the scene)
 
