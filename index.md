@@ -36,6 +36,8 @@ The first two original members of the CapibaraEngine are:
 
 - Scripting Module
 
+- ImGui Script Text Editor
+
 
 ### [Pol Pallares](https://github.com/Zeta115)
 
