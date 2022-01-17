@@ -198,7 +198,7 @@ Their respective Github usernames are:
 ### Scripting Contents
 
 
-(Image of the in-game Tank)
+![Gif of the in-game Tank](TankGif1.gif)
 
 - Tank moves and rotates using the keyboard (W, A, S, D).
 
@@ -209,14 +209,14 @@ Their respective Github usernames are:
 - In-editor text window to edit scripts.
 
 
-(Image of the Tank and turret in the scene)
+![Gif of the in-game Engine](TankGif2.gif)
 
 
-## Explanatory video
+## Engine Demo Video
 
 Link to the video [here](https://youtu.be/67RvIryQf3w) or watch it in our page:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/67RvIryQf3w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 ## Release Links
