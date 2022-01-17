@@ -255,15 +255,18 @@
     <ClInclude Include="Engine\Source\Dialogs.h">
       <Filter>Sources\Tools</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Source\Script.h">
-      <Filter>Sources\Resources</Filter>
-    </ClInclude>
     <ClInclude Include="resource1.h" />
     <ClInclude Include="Engine\Source\FileSystem.h">
       <Filter>Sources\Modules</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Source\Tank.h">
       <Filter>Sources\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Source\TextEditorMenu.h">
+      <Filter>Sources\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies\TextEditor\TextEditor.h">
+      <Filter>Sources\Tools</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -432,14 +435,17 @@
     <ClCompile Include="MathClient.cpp">
       <Filter>Sources\Tools</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Source\Script.cpp">
-      <Filter>Sources\Resources</Filter>
-    </ClCompile>
     <ClCompile Include="Engine\Source\FileSystem.cpp">
       <Filter>Sources\Modules</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Source\Tank.cpp">
       <Filter>Sources\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Source\TextEditorMenu.cpp">
+      <Filter>Sources\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\TextEditor\TextEditor.cpp">
+      <Filter>Sources\Tools</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

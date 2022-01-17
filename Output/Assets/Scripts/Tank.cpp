@@ -3,17 +3,14 @@
 
 // Modules
 #include "Tank.h"
-#include "ModuleWindow.h"
 #include "ModuleInput.h"
 #include "ModuleScene.h"
-#include "ModuleEditor.h"
 
 // GameObject & Components
 #include "GameObject.h"
 #include "TransformComponent.h"
 #include "Resource.h"
 #include "ResourceManager.h"
-
 
 Tank::Tank() {}
 Tank::~Tank() {}
@@ -43,17 +40,13 @@ bool Tank::Start()
 	{
 		rightWheelsGoTransform = (TransformComponent*)rightWheelsGo->GetComponent(ComponentType::TRANSFORM);
 	}
+
 	GameObject* leftWheelsGo = GameObject::FindWithName("TankTracksLeft");
 	if (leftWheelsGo != nullptr)
 	{
 		leftWheelsGoTransform = (TransformComponent*)leftWheelsGo->GetComponent(ComponentType::TRANSFORM);
 	}
 
-	return true;
-}
-
-bool Tank::PreUpdate(float dt)
-{
 	return true;
 }
 
@@ -65,29 +58,15 @@ bool Tank::Update(float dt)
 	return true;
 }
 
-bool Tank::PostUpdate()
-{
-	return true;
-}
-
-bool Tank::CleanUp()
-{
-	return true;
-}
-
 void Tank::Move()
 {
 	if (app->scene->GetGameState() == GameState::PLAYING)
 	{
 		if (app->input->GetKey(SDL_SCANCODE_W) == KeyState::KEY_REPEAT)
-		{
 			velocity += acceleration * app->scene->gameTimer.GetDeltaTime();
-			
-		}
+
 		if (app->input->GetKey(SDL_SCANCODE_S) == KeyState::KEY_REPEAT)
-		{
 			velocity -= acceleration * app->scene->gameTimer.GetDeltaTime();
-		}
 
 		velocity = (velocity > maxVelocityForward) ? maxVelocityForward : ((velocity < maxVelocityBackward) ? maxVelocityBackward : velocity);
 			
@@ -100,20 +79,16 @@ void Tank::Move()
 		{
 			velocity -= friction;
 			if (velocity < 0)
-			{
 				velocity = 0;
-			}
 		}
+
 		else if (velocity < 0)
 		{
 			velocity += friction;
 			if (velocity > 0)
-			{
 				velocity = 0;
-			}
 		}
 	}
-
 }
 
 void Tank::Rotate()
@@ -137,46 +112,53 @@ void Tank::Rotate()
 		}
 		
 		float2 mouse = { app->input->GetMousePosition().x, app->input->GetMousePosition().y };
-		float2 pos = { (tankGoTransform->GetPosition().x * 6), (tankGoTransform->GetPosition().z * 6)};
+		float2 pos = { (tankGoTransform->GetPosition().x * 6.5f), (tankGoTransform->GetPosition().z * 6.5f)};
 
 		float2 dir = mouse - pos;
-		float angle = atan2(dir.y, dir.x);		
+		float rotation = atan2(dir.y, dir.x);		
 
-		turretGoTransform->SetRotation(Quat::FromEulerXYZ(0, -(angle -(pi/2)), 0));
+		turretGoTransform->SetRotation(Quat::FromEulerXYZ(0, -(rotation -(pi/2)), 0));
 	}
-
 }
 
 void Tank::Shoot()
 {
 	if (app->scene->GetGameState() == GameState::PLAYING)
 	{
-		if (app->input->GetMouseButton(SDL_BUTTON_LEFT) == KeyState::KEY_DOWN)
+		if (app->input->GetMouseButton(SDL_BUTTON_LEFT) == KeyState::KEY_DOWN && !bulletAlive)
 		{
-			GameObject* object = app->scene->CreateGameObject(tankGo);
+			object = app->scene->CreateGameObject(tankGo);
 			bulletGoTransform = (TransformComponent*)object->GetComponent(ComponentType::TRANSFORM);
 			std::string path;
 			if (object != nullptr)
 			{
 				object->SetName("Bullet");
-				path = "Settings/EngineResources/__Cylinder.mesh";
+				path = "Settings/EngineResources/__Sphere.mesh";
 				if (!path.empty())
 				{
 					MeshComponent* mesh = (MeshComponent*)object->CreateComponent(ComponentType::MESH_RENDERER);
 					mesh->SetMesh(ResourceManager::GetInstance()->LoadResource(path));
 				}
-
 				bulletDir = turretGoTransform->forward;
-				bulletGoTransform->SetPosition(turretGoTransform->GetPosition());
-				/*if ((timer + lifeTime) < app->scene->gameTimer.GetTime())
-				{
-					app->scene->GetRoot()->RemoveChild(object);
-				}*/
-
+				bulletGoTransform->SetPosition({ turretGoTransform->GetPosition().x, turretGoTransform->GetPosition().y + 2.f, turretGoTransform->GetPosition().z });
+				bulletGoTransform->SetScale({0.5,0.5,0.5});
 				shoot = true;
+				bulletAlive = true;
 			}
 		}
 
-		if(shoot) bulletGoTransform->SetPosition(bulletGoTransform->GetPosition() + bulletDir.Mul(bulletVelocity * app->scene->gameTimer.GetDeltaTime()));
+		if(shoot)
+			bulletGoTransform->SetPosition(bulletGoTransform->GetPosition() + bulletDir.Mul(bulletVelocity * app->scene->gameTimer.GetDeltaTime()));
+
+		if(bulletAlive)
+		{
+			if (bulletGoTransform->GetPosition().x < 0 || bulletGoTransform->GetPosition().x > 80 || bulletGoTransform->GetPosition().z < 15 || bulletGoTransform->GetPosition().z > 65)
+			{
+				tankGo->RemoveChild(object);
+				object = nullptr;
+				bulletAlive = false;
+				shoot = false;
+			}
+		}
 	}
 }

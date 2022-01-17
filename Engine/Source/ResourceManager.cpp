@@ -12,7 +12,6 @@
 #include "Texture.h"
 #include "Mesh.h"
 #include "Model.h"
-#include "Script.h"
 
 #include <stack>
 
@@ -92,10 +91,6 @@ uint ResourceManager::CreateResource(ResourceType type, std::string& assets, std
 		library = LIBRARY_MODELS_FOLDER + std::string("model_") + std::to_string(uid) + ".cbmodel";
 		resource = std::make_shared<Model>(uid, assets, library);
 		break;
-	case ResourceType::SCRIPT:
-		library = LIBRARY_SCRIPTS_FOLDER + std::string("script_") + std::to_string(uid) + ".cbscript";
-		resource = std::make_shared<Script>(uid, assets, library);
-		break;
 	}
 
 	if (resource != nullptr) map[uid] = resource;
@@ -116,9 +111,6 @@ void ResourceManager::CreateResourceCreated(ResourceType type, uint uid, std::st
 		break;
 	case ResourceType::MODEL:
 		resource = std::make_shared<Model>(uid, assets, library);
-		break;
-	case ResourceType::SCRIPT:
-		resource = std::make_shared<Script>(uid, assets, library);
 		break;
 	default:
 		break;
@@ -207,6 +199,7 @@ void ResourceManager::ImportResourcesFromLibrary()
 					if (files[i].find(".cbmodel") != std::string::npos) CreateResourceCreated(ResourceType::MODEL, uid, assets, dir + files[i]);
 					else if (files[i].find(".cbtexture") != std::string::npos) CreateResourceCreated(ResourceType::TEXTURE, uid, assets, dir + files[i]);
 					else if (files[i].find(".cbmesh") != std::string::npos) CreateResourceCreated(ResourceType::MESH, uid, assets, dir + files[i]);
+					else if (files[i].find(".cbscript") != std::string::npos) CreateResourceCreated(ResourceType::SCRIPT, uid, assets, dir + files[i]);
 
 					RELEASE_ARRAY(buffer);
 				}
