@@ -15,6 +15,7 @@ The first two original members of the CapibaraEngine are:
 
 <img src="fotoAlbert.png" width="192" height="256">
 
+
 ### Tasked with:
 
 
@@ -28,6 +29,7 @@ The first two original members of the CapibaraEngine are:
 - [Arnau Bonada](https://github.com/arnaubonada)
 
 <img src="fotoArnau.png" width="192" height="256">
+
 
 ### Tasked with:
 
@@ -54,7 +56,6 @@ The first two original members of the CapibaraEngine are:
 
 
 ## In the first assignment
-
 
 ### Models and .fbx Import
 
@@ -86,7 +87,7 @@ The first two original members of the CapibaraEngine are:
 - Holding SHIFT duplicates movement speed.
 
 - Alt+Left click to orbit around the object.
--
+
 - "F" to focus the camera around the geometry.
 
 
@@ -132,6 +133,7 @@ The first two original members of the CapibaraEngine are:
 
 
 ## In the second assignment
+
 
 - The "Street environment" was loaded at the start automaticaly
 
@@ -209,6 +211,7 @@ Due to the engine being done under a university project the diferent teams have 
 
 (Image of the Tank and turret in the scene)
 
+
 ## Explanatory video
 
 Link to the video [here](https://www.youtube.com/watch?v=dQw4w9WgXcQ) or watch it in our page:
@@ -223,10 +226,10 @@ Link to the video [here](https://www.youtube.com/watch?v=dQw4w9WgXcQ) or watch i
 - Link to the latest release ready to download [here](https://github.com/Hydeon-git/CapibaraEngine3/releases)
 
 
-
 ## License
 
 - This project is suported under an MIT license link [here](https://github.com/Hydeon-git/CapibaraEngine3/blob/main/LICENSE.md) or read the complete license below:
+
 
 MIT License
 
