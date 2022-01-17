@@ -34,7 +34,7 @@ public:
 	float rotateVelocity = 50.0f;
 
 	float3 bulletDir = { 0,0,0 };
-	float bulletVelocity = 15.0f;
+	float bulletVelocity = 20.0f;
 
 	float velocity = 0.0f;
 	float acceleration = 2.5f;
@@ -43,6 +43,8 @@ public:
 	float friction = 0.03f;
 
 	bool shoot = false;
+	bool bulletAlive = false;
 private:
 	GameObject* baseGO = nullptr;
+	GameObject* object = nullptr;
 };

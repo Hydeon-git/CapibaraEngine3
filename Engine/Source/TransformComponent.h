@@ -30,6 +30,7 @@ public:
 	void OnEditor() override;
 
 	void SetPosition(const float3& pos);
+	void SetScale(const float3& scale);
 	void SetRotation(const Quat& rot);
 
 	void SetTransform(float3 pos, Quat rot, float3 sca);

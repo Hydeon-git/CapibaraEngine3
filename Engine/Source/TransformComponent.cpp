@@ -117,6 +117,13 @@ void TransformComponent::SetPosition(const float3& pos)
 	UpdateTransform();
 }
 
+void TransformComponent::SetScale(const float3& sca)
+{
+	scale = sca;
+
+	UpdateTransform();
+}
+
 void TransformComponent::SetRotation(const Quat& rot)
 {
 	rotation.Set(rot.x, rot.y, rot.z, rot.w);

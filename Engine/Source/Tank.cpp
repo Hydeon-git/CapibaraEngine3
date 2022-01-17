@@ -137,7 +137,7 @@ void Tank::Rotate()
 		}
 		
 		float2 mouse = { app->input->GetMousePosition().x, app->input->GetMousePosition().y };
-		float2 pos = { (tankGoTransform->GetPosition().x * 6), (tankGoTransform->GetPosition().z * 6)};
+		float2 pos = { (tankGoTransform->GetPosition().x * 6.5f), (tankGoTransform->GetPosition().z * 6.5f)};
 
 		float2 dir = mouse - pos;
 		float angle = atan2(dir.y, dir.x);		
@@ -151,15 +151,15 @@ void Tank::Shoot()
 {
 	if (app->scene->GetGameState() == GameState::PLAYING)
 	{
-		if (app->input->GetMouseButton(SDL_BUTTON_LEFT) == KeyState::KEY_DOWN)
+		if (app->input->GetMouseButton(SDL_BUTTON_LEFT) == KeyState::KEY_DOWN && !bulletAlive)
 		{
-			GameObject* object = app->scene->CreateGameObject(tankGo);
+			object = app->scene->CreateGameObject(tankGo);
 			bulletGoTransform = (TransformComponent*)object->GetComponent(ComponentType::TRANSFORM);
 			std::string path;
 			if (object != nullptr)
 			{
 				object->SetName("Bullet");
-				path = "Settings/EngineResources/__Cylinder.mesh";
+				path = "Settings/EngineResources/__Sphere.mesh";
 				if (!path.empty())
 				{
 					MeshComponent* mesh = (MeshComponent*)object->CreateComponent(ComponentType::MESH_RENDERER);
@@ -167,16 +167,26 @@ void Tank::Shoot()
 				}
 
 				bulletDir = turretGoTransform->forward;
-				bulletGoTransform->SetPosition(turretGoTransform->GetPosition());
-				/*if ((timer + lifeTime) < app->scene->gameTimer.GetTime())
-				{
-					app->scene->GetRoot()->RemoveChild(object);
-				}*/
+				bulletGoTransform->SetPosition({ turretGoTransform->GetPosition().x, turretGoTransform->GetPosition().y + 2.f, turretGoTransform->GetPosition().z });
+				bulletGoTransform->SetScale({0.5,0.5,0.5});
 
 				shoot = true;
+				bulletAlive = true;
 			}
 		}
 
 		if(shoot) bulletGoTransform->SetPosition(bulletGoTransform->GetPosition() + bulletDir.Mul(bulletVelocity * app->scene->gameTimer.GetDeltaTime()));
+
+		if(bulletAlive)
+		{
+			if (bulletGoTransform->GetPosition().x < 0 || bulletGoTransform->GetPosition().x > 80 || bulletGoTransform->GetPosition().z < 15 || bulletGoTransform->GetPosition().z > 65)
+			{
+				tankGo->RemoveChild(object);
+				object = nullptr;
+				bulletAlive = false;
+				shoot = false;
+			}
+		}
+
 	}
 }
