@@ -1,6 +1,7 @@
 # Welcome to CapibaraEngine 3
 
-![](capilogo.png)
+<img src="capilogo.png" width="405" height="405">
+
 
 ## Intro
 
@@ -11,8 +12,7 @@ In this page you will find every piece of information regarding CapibaraEngine3,
 The first two original members of the CapibaraEngine are:
 
 - [Albert Pou](https://github.com/Hydeon-git)
-
-![](fotoAlbert.png)
+<img src="fotoAlbert.png" width="192" height="256">
 
 ### Tasked with:
 
