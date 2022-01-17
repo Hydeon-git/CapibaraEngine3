@@ -11,44 +11,39 @@ In this page you will find every piece of information regarding CapibaraEngine3,
 ## Team Members
 The first two original members of the CapibaraEngine are:
 
-- [Albert Pou](https://github.com/Hydeon-git)
+### [Albert Pou](https://github.com/Hydeon-git)
 
 <img src="fotoAlbert.png" width="192" height="256">
 
-
-### Tasked with:
-
+#### Tasked with:
 
 - Tank scene implementation
 
-- Fbx Load
+- Tank movement and rotation systems
 
 - Scripting Module
 
 
-- [Arnau Bonada](https://github.com/arnaubonada)
+###  [Arnau Bonada](https://github.com/arnaubonada)
 
-<img src="fotoArnau.png" width="192" height="256">
+<img src="fotoArnau.png" width="220" height="256">
 
-
-### Tasked with:
-
+#### Tasked with:
 
 - Tank movement and rotation systems
 
 - Capibara Logo implementation
 
-- Scrip resources
+- Scripting Module
 
 
-- Then [Pol Pallares](https://github.com/Zeta115) joined the team in at the start of the second assignment due to his first team splitting up.
+### [Pol Pallares](https://github.com/Zeta115)
 
-<img src="fotoPol.png" width="192" height="256">
+<img src="fotoPol.png" width="260" height="256">
 
-### Tasked with:
+#### Tasked with:
 
-
-- Webpage Management
+- Webpage Creation & Management
 
 
 
