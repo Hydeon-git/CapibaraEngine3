@@ -214,7 +214,7 @@ Their respective Github usernames are:
 
 ## Explanatory video
 
-Link to the video [here](https://www.youtube.com/watch?v=dQw4w9WgXcQ) or watch it in our page:
+Link to the video [here](https://youtu.be/67RvIryQf3w) or watch it in our page:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
