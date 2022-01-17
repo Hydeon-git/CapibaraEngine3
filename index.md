@@ -18,13 +18,13 @@ In this page you will find every piece of information regarding CapibaraEngine3,
 #### Tasked with:
 
 
-- Tank scene implementation
+- Tank Scene implementation
 
-- Tank Movement and Rotation Systems
+- Tank Movement and Rotation systems
 
 - Scripting Module
 
-- Capibara Custom Engine Icons
+- Capibara Engine Custom Icons
 
 - Webpage Polishing
 
@@ -35,14 +35,13 @@ In this page you will find every piece of information regarding CapibaraEngine3,
 
 #### Tasked with:
 
-
-- Tank Movement, Rotation and Shooting Systems
+- Tank Movement, Rotation and Shooting systems
 
 - Capibara Logo implementation
 
 - Scripting Module
 
-- Capibara Icons InEngine implementation
+- Capibara Icons In-Engine implementation
 
 - ImGui Script Text Editor
 
@@ -66,19 +65,11 @@ In this page you will find every piece of information regarding CapibaraEngine3,
 
 - Basic Shape primitives: Cube, Pyramid and Sphere.
 
-- Drag & Drop functionallity.
-
 - .fbx Objects can be loaded and be visible in the engine.
 
 - 3 different .fbx models included in the engine (/Assets folder).
 
-- Baker_house was automatically loaded at the start.
-
-- Two models in FBX format with one channel diffuse texture.
-
-- Drag&drop of FBX files from anywhere in the Hard Drive.
-
-- Drag&drop of DDS/PNG files.
+- Drag & Drop of FBX & DDS/PNG files.
 
 - GameObject structure, one for each loaded mesh. Each GameObject having 3 display-only components: Transform, Mesh and Texture.
 
@@ -98,7 +89,7 @@ In this page you will find every piece of information regarding CapibaraEngine3,
 
 ### Editor Windows
 
-- Console: The console LOGS the geometry loading process.
+- The console LOGS the geometry loading process.
 
 
 ### Configuration
@@ -132,7 +123,7 @@ In this page you will find every piece of information regarding CapibaraEngine3,
 
 ### Menus
 
-- About window with github link and information about the engine
+- About window with Github link and information about the Engine
 
 - Option to turn on/off editor windows
 
@@ -141,8 +132,6 @@ In this page you will find every piece of information regarding CapibaraEngine3,
 On the second assignment we forked our project from our teacher [Rubén Ajenjo](https://github.com/solidajenjo/), who provided us a fresh project to continue developing CapibaraEngine under all 1st Assignment demands.
 
 This project was forked from https://github.com/solidajenjo/Engine3D.
-
-- The "Street environment" was loaded at the start automaticaly
 
 - The user can now use the inspector to modify a Gameobject's:
 
@@ -164,14 +153,14 @@ This project was forked from https://github.com/solidajenjo/Engine3D.
 
 - Scene serialized to a file to be loaded.
 
-- Start/ Pause/ Stop mechanics added to the simulation and recovering original state.
+- Play/Pause/Stop mechanics added to the simulation and recovering original state.
 
-- Editor with 2 windows: Editor view / Main in game camera viewing at the same time.
+- Editor with 2 windows: Editor view / Main Game camera viewing at the same time.
 
 
 ### Resource Management
 
-- “Assets” window  showing all user assets.
+- “Assets” window showing all user assets.
 
 - The user can drop/import new files.
 
@@ -195,13 +184,15 @@ Their respective Github usernames are:
 
 ###  General Contents
 
-- Full Engine's Website
+- Engine's Website
 
-- Default window at 1024 x 768 centered on the screen
+- Default window at 1024 x 768 and centered on the screen
 
 - Resizable window.
 
-- Build Loads directly from the scene
+- Build loads directly from the scene with the required demo
+
+- All systems work using time controls (Play/Pause/Stop)
 
 
 ### Scripting Contents
@@ -209,9 +200,11 @@ Their respective Github usernames are:
 
 (Image of the in-game Tank)
 
-- Tank moves using the keyboard (W,A,S,D).
+- Tank moves and rotates using the keyboard (W, A, S, D).
 
-- Tank shoots with Left Click on the mouse(Bullets are new GameObjects and have lifetimes).
+- Tank turret rotates with the mouse.
+
+- Tank shoots with Left Click on the mouse (Bullets are new GameObjects and have a lifetime).
 
 - In-editor text window to edit scripts.
 
@@ -247,5 +240,3 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
