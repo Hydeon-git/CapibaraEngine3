@@ -192,7 +192,6 @@ Due to the engine being done under a university project the diferent teams have 
 
 ### Scripting Contents
 
-<img src="CapturaTank.PNG" width="540" height="360">
 
 (Image of the in-game Tank)
 
@@ -202,7 +201,6 @@ Due to the engine being done under a university project the diferent teams have 
 
 - In-editor text window to edit scripts.
 
-<img src="CapturaTank2.PNG" width="540" height="360">
 
 (Image of the Tank and turret in the scene)
 
